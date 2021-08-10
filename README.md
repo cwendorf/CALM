@@ -1,2 +1,4 @@
-# contrastCodes
- Creating Contrast Codes for Linear Models
+# Contrast Algorithms for Linear Models
+## Create and Interpret Contrast Codes
+
+This repository is under construction.

@@ -1,0 +1,10 @@
+Package: CALM
+Type: Package
+Title: Contrast Algorithms for Linear Models
+Description: An R Package to Create and Interpret Contrast Codes 
+Version: 0.1.0
+Depends: R (>= 3.5.0)
+Encoding: UTF-8
+LazyData: true
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr

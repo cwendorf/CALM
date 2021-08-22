@@ -4,7 +4,6 @@
 ### R Equivalent: helmert
 ### SPSS Equivalent: difference
 ### MR Equivalent: none
-
 ### codingMatrices Parallel: helmert
 
 ### Original Code: codingMatrices

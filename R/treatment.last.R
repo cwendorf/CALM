@@ -4,7 +4,6 @@
 ### R Equivalent: contr.SAS
 ### SPSS Equivalent: simple (last)
 ### MR Equivalent: dummy
-
 ### codingMatrices Parallel: control_last
 
 ### Original Code: R Base

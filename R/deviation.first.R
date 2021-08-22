@@ -4,7 +4,6 @@
 ### R Equivalent: none
 ### SPSS Equivalent: none
 ### MR Equivalent: none
-
 ### codingMatrices Parallel: deviation_first
 
 ### Original Code: codingMatrices
@@ -28,7 +27,7 @@ deviation.first <- function(n, intercept=FALSE, contrasts=TRUE, sparse=FALSE) {
   }
   B <- rbind(-1, diag(n-1))
   dimnames(B) <- list(1:n, paste0("MD", .zf(2:n)))
-    if(intercept) (B <- cbind(Int=1,B))  
+  if(intercept) (B <- cbind(Int=1,B))  
   if(sparse){
     .asSparse(B)
   } else {

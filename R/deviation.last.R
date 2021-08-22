@@ -4,7 +4,6 @@
 ### R Equivalent: contr.sum
 ### SPSS Equivalent: deviation
 ### MR Equivalent: effect
-
 ### codingMatrices Parallel: deviation
 
 ### Original Code: R Base
@@ -22,7 +21,7 @@ deviation.last <- function (n, intercept=FALSE, contrasts=TRUE, sparse=FALSE) {
         cont <- cont[, -length(levels), drop = FALSE]
         cont[length(levels), ] <- -1
         colnames(cont) <- NULL
-        dimnames(cont) <- list(1:n, paste0("MD", .zf(2:n)))  
+        dimnames(cont) <- list(1:n, paste0("MD", .zf(1:(n-1))))  
     }
     if(intercept) (cont <- cbind(Int=1,cont))
     cont

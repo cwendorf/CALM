@@ -4,7 +4,6 @@
 ### R Equivalent: contr.treatment
 ### SPSS Equivalent: simple (first)
 ### MR Equivalent: none
-
 ### codingMatrices Parallel: control
 
 ### Original Code: R Base

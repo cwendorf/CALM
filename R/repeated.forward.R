@@ -4,7 +4,6 @@
 ### R Equivalent: none
 ### SPSS Equivalent: repeated
 ### MR Equivalent: repeated
-
 ### codingMatrices Parallel: diff_forward
 
 ### Original Code: codingMatrices
@@ -29,10 +28,9 @@ repeated.forward <- function(n, intercept=FALSE, contrasts=TRUE, sparse=FALSE) {
   if(max(nchar(levels)) > 3) {
     levels <- paste0("m", .zf(seq_len(n)))
   }
-  B <- 1 - col(matrix(0, n, n))
-  ut <- upper.tri(B)
-  B[ut] <- n + B[ut]
-  B <- B[, -1, drop = FALSE]/n
+  B <- matrix(0,n,n)
+  B[lower.tri(B,diag=TRUE)] <- 1
+  B <- B[,-1]
   dimnames(B) <- list(1:n, paste(levels[-n], levels[-1], sep = "-"))
   if(intercept) (B <- cbind(Int=1,B))   
   if(sparse){

@@ -4,7 +4,7 @@
 
 ### Overview
 
-`CALM` is an R package for creating and interpreting contrast codes for linear models. It is an extension of the built-in contrast specifications in R and a modification of Vernables's 'codingMatrices' package. In addition to contrast specifications, it includes functions for directly converting hypothesized differences (contrasts) into linear model codes (and vice versa).
+`CALM` is an R package for creating and interpreting contrast codes for linear models. It is an extension of the built-in contrast specifications in R and a modification of Venables's `codingMatrices` package. In addition to contrast specifications, it includes functions for directly converting hypothesized differences (contrasts) into linear model codes (and vice versa).
 
 ### Installation
 

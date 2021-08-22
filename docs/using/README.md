@@ -1,123 +1,400 @@
-## Examples from ITNS
-
-### Overview of the Examples
-
-Data and summary statistics for these examples are from the *[Introduction to the New Statistics](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")* (*ITNS*; Cumming & Calin-Jageman, 2017).
-
-> NOTE: The results of these analyses vary slightly from those presented in *ITNS* because the two make different statistical assumptions (e.g, heterogeneity of variance vs. pooled error terms, etc.).
-
-### Examples of Means and Mean Differences
-
-The **PenLaptop** files analyze an example of a two-group between-subjects (independent-groups) design (see Ch. 7):
-
-- [*PenLaptopDataExample*](./PenLaptopDataExample.md) uses raw data input.
-- [*PenLaptopSummaryExample*](./PenLaptopSummaryExample.md) uses summary statistics input.
-
-The **Thomason** files analyze an example of a within-subjects design for two time points (paired samples, see Ch. 8):
-
-- [*ThomasonDataExample*](./ThomasonDataExample.md) uses raw data input.
-- [*ThomasonSummaryExample*](./ThomasonSummaryExample.md) uses summary statistics input.
-
-The **Rattan** files analyze an example of a single-factor between-subjects design (see Ch. 14):
-
-- [*RattanDataExample*](./RattanDataExample.md) uses raw data input.
-- [*RattanSummaryExample*](./RattanSummaryExample.md) uses summary statistics input.
-
-The **Donohue** files analyze an example of a single-factor within-subjects design (see Ch. 14):
-
-- [*DonohueDataExample*](./DonohueDataExample.md) uses raw data input.
-- [*DonohueSummaryExample*](./DonohueSummaryExample.md) uses summary statistics input.
-
-The **Frenda** files analyze an example of a two-factor between-subjects design (see Ch. 15):
-
-- [*FrendaSummaryExample*](./FrendaSummaryExample.md) uses summary statistics input.
-
-The **Holzel** files analyze an example of a two-factor mixed design (one between-subjects and one within-subjects factor) (see Ch. 15):
-
-- [*HolzelDataExample*](./HolzelDataExample.md) uses raw data input.
-- [*HolzelSummaryExample*](./HolzelSummaryExample.md) uses summary statistics input.
-
-### Examples of Correlations and Correlation Differences
-
-The **BodyWellOne** files analyze an example of a correlation in a single sample (see Ch. 11):
-
-- [*BodyWellOneDataExample*](./BodyWellOneDataExample.md) uses raw data input.
-- [*BodyWellOneSummaryExample*](./BodyWellOneSummaryExample.md) uses summary statistics input.
-
-The **BodyWellTwo** files analyze an example of a correlation in two samples (see Ch. 11):
-
-- [*BodyWellTwoDataExample*](./BodyWellTwoDataExample.md) uses raw data input.
-- [*BodyWellTwoSummaryExample*](./BodyWellTwoSummaryExample.md) uses summary statistics input.
-
-### Examples of Regression and Regression Coefficients
-
-The **BodyWellRegression** files analyze an example of regression in a single sample (see Ch. 12):
-
-- [*BodyWellRegressionDataExample*](./BodyWellRegressionDataExample.md) uses raw data input.
-- [*BodyWellRegressionSummaryExample*](./BodyWellRegressionSummaryExample.md) uses summary statistics input.
-
-### References
-
-Cumming, G. & Calin-Jageman, R. (2017). *Introduction to the new statistics.* Routledge.
+---
+title: "Contrast Algorithms for Linear Models"
+author: "Craig A. Wendorf"
+date: "2021-08-22"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: default
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Using Common Contrast Matrices}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
 
 
 
 
 
-## Using Standard Contrasts
+## Using Common Contrast Matrices
+
+### Overview
+
+
 
 ### Example: Treatment (First) Contrasts
 
+
+```r
 treatment.first(3)
+```
+
+```
+##   2-1 3-1
+## 1   0   0
+## 2   1   0
+## 3   0   1
+```
+
+```r
 treatment.first(3,intercept=TRUE)
+```
+
+```
+##   Int 2-1 3-1
+## 1   1   0   0
+## 2   1   1   0
+## 3   1   0   1
+```
+
+```r
 calm.decode(treatment.first(3))
+```
+
+```
+##     1 2 3
+## 2-1 0 1 0
+## 3-1 0 0 1
+```
+
+```r
 calm.decode(treatment.first(3,intercept=TRUE))
+```
+
+```
+##      1 2 3
+## Int  1 0 0
+## 2-1 -1 1 0
+## 3-1 -1 0 1
+```
 
 ### Example: Treatment (Last) Contrasts
 
+
+```r
 treatment.last(3)
+```
+
+```
+##   1-3 2-3
+## 1   1   0
+## 2   0   1
+## 3   0   0
+```
+
+```r
 treatment.last(3,intercept=TRUE)
+```
+
+```
+##   Int 1-3 2-3
+## 1   1   1   0
+## 2   1   0   1
+## 3   1   0   0
+```
+
+```r
 calm.decode(treatment.last(3))
+```
+
+```
+##     1 2 3
+## 1-3 1 0 0
+## 2-3 0 1 0
+```
+
+```r
 calm.decode(treatment.last(3,intercept=TRUE))
+```
+
+```
+##     1 2  3
+## Int 0 0  1
+## 1-3 1 0 -1
+## 2-3 0 1 -1
+```
 
 ### Example: Deviation (First) Contrasts
 
+
+```r
 deviation.first(3)
+```
+
+```
+##   MD2 MD3
+## 1  -1  -1
+## 2   1   0
+## 3   0   1
+```
+
+```r
 deviation.first(3,intercept=TRUE)
+```
+
+```
+##   Int MD2 MD3
+## 1   1  -1  -1
+## 2   1   1   0
+## 3   1   0   1
+```
+
+```r
 calm.decode(deviation.first(3))
+```
+
+```
+##         1     2     3
+## MD2 -0.33  0.67 -0.33
+## MD3 -0.33 -0.33  0.67
+```
+
+```r
 calm.decode(deviation.first(3,intercept=TRUE))
+```
+
+```
+##         1     2     3
+## Int  0.33  0.33  0.33
+## MD2 -0.33  0.67 -0.33
+## MD3 -0.33 -0.33  0.67
+```
 
 ### Example: Deviation (Last) Contrasts
 
+
+```r
 deviation.last(3)
+```
+
+```
+##   MD1 MD2
+## 1   1   0
+## 2   0   1
+## 3  -1  -1
+```
+
+```r
 deviation.last(3,intercept=TRUE)
+```
+
+```
+##   Int MD1 MD2
+## 1   1   1   0
+## 2   1   0   1
+## 3   1  -1  -1
+```
+
+```r
 calm.decode(deviation.last(3))
+```
+
+```
+##         1     2     3
+## MD1  0.67 -0.33 -0.33
+## MD2 -0.33  0.67 -0.33
+```
+
+```r
 calm.decode(deviation.last(3,intercept=TRUE))
+```
+
+```
+##         1     2     3
+## Int  0.33  0.33  0.33
+## MD1  0.67 -0.33 -0.33
+## MD2 -0.33  0.67 -0.33
+```
 
 ### Example: Helmert (Forward) Contrasts
 
+
+```r
 helmert.forward(3)
+```
+
+```
+##          FH1  FH2
+## 1  0.6666667  0.0
+## 2 -0.3333333  0.5
+## 3 -0.3333333 -0.5
+```
+
+```r
 helmert.forward(3,intercept=TRUE)
+```
+
+```
+##   Int        FH1  FH2
+## 1   1  0.6666667  0.0
+## 2   1 -0.3333333  0.5
+## 3   1 -0.3333333 -0.5
+```
+
+```r
 calm.decode(helmert.forward(3))
+```
+
+```
+##     1    2    3
+## FH1 1 -0.5 -0.5
+## FH2 0  1.0 -1.0
+```
+
+```r
 calm.decode(helmert.forward(3,intercept=TRUE))
+```
+
+```
+##        1     2     3
+## Int 0.33  0.33  0.33
+## FH1 1.00 -0.50 -0.50
+## FH2 0.00  1.00 -1.00
+```
 
 ### Example: Helmert (Reverse) Contrasts
 
+
+```r
 helmert.reverse(3)
+```
+
+```
+##     H2         H3
+## 1 -0.5 -0.3333333
+## 2  0.5 -0.3333333
+## 3  0.0  0.6666667
+```
+
+```r
 helmert.reverse(3,intercept=TRUE)
+```
+
+```
+##   Int   H2         H3
+## 1   1 -0.5 -0.3333333
+## 2   1  0.5 -0.3333333
+## 3   1  0.0  0.6666667
+```
+
+```r
 calm.decode(helmert.reverse(3))
+```
+
+```
+##       1    2 3
+## H2 -1.0  1.0 0
+## H3 -0.5 -0.5 1
+```
+
+```r
 calm.decode(helmert.reverse(3,intercept=TRUE))
+```
+
+```
+##         1     2    3
+## Int  0.33  0.33 0.33
+## H2  -1.00  1.00 0.00
+## H3  -0.50 -0.50 1.00
+```
 
 ### Example: Repeated (Forward) Contrasts
 
+
+```r
 repeated.forward(3)
+```
+
+```
+##   1-2 2-3
+## 1   0   0
+## 2   1   0
+## 3   1   1
+```
+
+```r
 repeated.forward(3,intercept=TRUE)
+```
+
+```
+##   Int 1-2 2-3
+## 1   1   0   0
+## 2   1   1   0
+## 3   1   1   1
+```
+
+```r
 calm.decode(repeated.forward(3))
+```
+
+```
+##     1  2 3
+## 1-2 0  1 0
+## 2-3 0 -1 1
+```
+
+```r
 calm.decode(repeated.forward(3,intercept=TRUE))
+```
+
+```
+##      1  2 3
+## Int  1  0 0
+## 1-2 -1  1 0
+## 2-3  0 -1 1
+```
 
 ### Example: Repeated (Reverse) Contrasts
 
+
+```r
 repeated.reverse(3)
+```
+
+```
+##   2-1 3-2
+## 1   1   1
+## 2   1   0
+## 3   0   0
+```
+
+```r
 repeated.reverse(3,intercept=TRUE)
+```
+
+```
+##   Int 2-1 3-2
+## 1   1   1   1
+## 2   1   1   0
+## 3   1   0   0
+```
+
+```r
 calm.decode(repeated.reverse(3))
+```
+
+```
+##     1  2 3
+## 2-1 0  1 0
+## 3-2 1 -1 0
+```
+
+```r
 calm.decode(repeated.reverse(3,intercept=TRUE))
+```
+
+```
+##     1  2  3
+## Int 0  0  1
+## 2-1 0  1 -1
+## 3-2 1 -1  0
+```
+
+### References
+
+Wendorf, C. A. (2004). Primer on multiple regression coding: Common forms and the additional case of repeated contrasts. *Understanding Statistics, 3,* 47-57. 

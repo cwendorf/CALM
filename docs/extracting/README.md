@@ -1,72 +1,36 @@
-## Examples from ITNS
+---
+title: "Contrast Algorithms for Linear Models"
+author: "Craig A. Wendorf"
+date: "2021-08-22"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: default
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Extracting Hypotheses from Regression Codes}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
 
-### Overview of the Examples
-
-Data and summary statistics for these examples are from the *[Introduction to the New Statistics](https://thenewstatistics.com/itns/ "Introduction to the New Statistics")* (*ITNS*; Cumming & Calin-Jageman, 2017).
-
-> NOTE: The results of these analyses vary slightly from those presented in *ITNS* because the two make different statistical assumptions (e.g, heterogeneity of variance vs. pooled error terms, etc.).
-
-### Examples of Means and Mean Differences
-
-The **PenLaptop** files analyze an example of a two-group between-subjects (independent-groups) design (see Ch. 7):
-
-- [*PenLaptopDataExample*](./PenLaptopDataExample.md) uses raw data input.
-- [*PenLaptopSummaryExample*](./PenLaptopSummaryExample.md) uses summary statistics input.
-
-The **Thomason** files analyze an example of a within-subjects design for two time points (paired samples, see Ch. 8):
-
-- [*ThomasonDataExample*](./ThomasonDataExample.md) uses raw data input.
-- [*ThomasonSummaryExample*](./ThomasonSummaryExample.md) uses summary statistics input.
-
-The **Rattan** files analyze an example of a single-factor between-subjects design (see Ch. 14):
-
-- [*RattanDataExample*](./RattanDataExample.md) uses raw data input.
-- [*RattanSummaryExample*](./RattanSummaryExample.md) uses summary statistics input.
-
-The **Donohue** files analyze an example of a single-factor within-subjects design (see Ch. 14):
-
-- [*DonohueDataExample*](./DonohueDataExample.md) uses raw data input.
-- [*DonohueSummaryExample*](./DonohueSummaryExample.md) uses summary statistics input.
-
-The **Frenda** files analyze an example of a two-factor between-subjects design (see Ch. 15):
-
-- [*FrendaSummaryExample*](./FrendaSummaryExample.md) uses summary statistics input.
-
-The **Holzel** files analyze an example of a two-factor mixed design (one between-subjects and one within-subjects factor) (see Ch. 15):
-
-- [*HolzelDataExample*](./HolzelDataExample.md) uses raw data input.
-- [*HolzelSummaryExample*](./HolzelSummaryExample.md) uses summary statistics input.
-
-### Examples of Correlations and Correlation Differences
-
-The **BodyWellOne** files analyze an example of a correlation in a single sample (see Ch. 11):
-
-- [*BodyWellOneDataExample*](./BodyWellOneDataExample.md) uses raw data input.
-- [*BodyWellOneSummaryExample*](./BodyWellOneSummaryExample.md) uses summary statistics input.
-
-The **BodyWellTwo** files analyze an example of a correlation in two samples (see Ch. 11):
-
-- [*BodyWellTwoDataExample*](./BodyWellTwoDataExample.md) uses raw data input.
-- [*BodyWellTwoSummaryExample*](./BodyWellTwoSummaryExample.md) uses summary statistics input.
-
-### Examples of Regression and Regression Coefficients
-
-The **BodyWellRegression** files analyze an example of regression in a single sample (see Ch. 12):
-
-- [*BodyWellRegressionDataExample*](./BodyWellRegressionDataExample.md) uses raw data input.
-- [*BodyWellRegressionSummaryExample*](./BodyWellRegressionSummaryExample.md) uses summary statistics input.
-
-### References
-
-Cumming, G. & Calin-Jageman, R. (2017). *Introduction to the new statistics.* Routledge.
 
 
 
 
 ## Extracting Hypotheses from Regression Codes
 
+### Overview
+
+Using the procedures outlined in Wendorf (2004), `CALM` takes existing multiple regression coding patterns and decodes them to determine the hypotheses being tested. In the examples below, the matrix input shows the coding pattern (columns represent coded vectors, rows represent the groups being represented). The obtained output shows the linear contrasts hypotheses being represented (the rows represent the weights for the contrast, the columns represent the groups being compared).
+
 ### Example: Dummy Coding
 
+
+```r
 ex_dummy = matrix(c(
     1,1,0,
     1,0,1,
@@ -74,9 +38,19 @@ ex_dummy = matrix(c(
     ncol=3,
     byrow=TRUE)
 calm.decode(ex_dummy)
+```
+
+```
+##          GROUP 1 GROUP 2 GROUP 3
+## HYPOTH 1       0       0       1
+## HYPOTH 2       1       0      -1
+## HYPOTH 3       0       1      -1
+```
 
 ### Example: Effect Coding
 
+
+```r
 ex_effect = matrix(c(
     1,1,0,
     1,0,1,
@@ -84,9 +58,19 @@ ex_effect = matrix(c(
     ncol=3,
     byrow=TRUE)
 calm.decode(ex_effect)
+```
+
+```
+##          GROUP 1 GROUP 2 GROUP 3
+## HYPOTH 1    0.33    0.33    0.33
+## HYPOTH 2    0.67   -0.33   -0.33
+## HYPOTH 3   -0.33    0.67   -0.33
+```
 
 ### Example: Repeated Coding
 
+
+```r
 ex_repeated = matrix(c(
     1,0,0,
     1,1,0,
@@ -94,4 +78,15 @@ ex_repeated = matrix(c(
     ncol=3,
     byrow=TRUE)
 calm.decode(ex_repeated)
+```
 
+```
+##          GROUP 1 GROUP 2 GROUP 3
+## HYPOTH 1       1       0       0
+## HYPOTH 2      -1       1       0
+## HYPOTH 3       0      -1       1
+```
+
+### References
+
+Wendorf, C. A. (2004). Primer on multiple regression coding: Common forms and the additional case of repeated contrasts. *Understanding Statistics, 3,* 47-57. 

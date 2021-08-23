@@ -12,7 +12,7 @@ output:
     highlight: default
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{Extracting Hypotheses from Regression Codes}
+  %\VignetteIndexEntry{Extracting Hypotheses from Codes}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -26,13 +26,15 @@ knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,wa
 library(CALM)
 ```
 
-## Extracting Hypotheses from Regression Codes
+## Extracting Hypotheses from Codes
 
 ### Overview
 
-Using the procedures outlined in Wendorf (2004), `CALM` takes existing multiple regression coding patterns and decodes them to determine the hypotheses being tested. In the examples below, the matrix input shows the coding pattern (columns represent coded vectors, rows represent the groups being represented). The obtained output shows the linear contrasts hypotheses being represented (the rows represent the weights for the contrast, the columns represent the groups being compared).
+Following Wendorf (2004), `CALM` can take existing coding patterns and decode them to determine the hypotheses being tested. In the examples below, the matrix input shows the coding pattern (columns represent coded vectors, rows represent the groups being represented). The obtained output shows the linear contrasts hypotheses being represented (the rows represent the weights for the contrast, the columns represent the groups being compared).
 
-### Example: Dummy Coding
+### Extracting from Regression Codes
+
+#### Example: Dummy Coding
 
 ```{r}
 ex_dummy = matrix(c(
@@ -44,7 +46,7 @@ ex_dummy = matrix(c(
 calm.decode(ex_dummy)
 ```
 
-### Example: Effect Coding
+#### Example: Effect Coding
 
 ```{r}
 ex_effect = matrix(c(
@@ -56,7 +58,7 @@ ex_effect = matrix(c(
 calm.decode(ex_effect)
 ```
 
-### Example: Repeated Coding
+#### Example: Repeated Coding
 
 ```{r}
 ex_repeated = matrix(c(
@@ -66,6 +68,43 @@ ex_repeated = matrix(c(
     ncol=3,
     byrow=TRUE)
 calm.decode(ex_repeated)
+```
+
+### Extracting from R Base Contrast Codes
+
+#### Example: contr.treatment
+
+```{r}
+contr.treatment(3)
+calm.decode(contr.treatment(3))
+```
+
+#### Example: contr.SAS
+
+```{r}
+contr.SAS(3)
+calm.decode(contr.SAS(3))
+```
+
+#### Example: contr.sum
+
+```{r}
+contr.sum(3)
+calm.decode(contr.sum(3))
+```
+
+#### Example: contr.helmert
+
+```{r}
+contr.helmert(3)
+calm.decode(contr.helmert(3))
+```
+
+#### Example: contr.poly
+
+```{r}
+contr.poly(3)
+calm.decode(contr.poly(3))
 ```
 
 ### References

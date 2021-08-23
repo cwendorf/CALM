@@ -12,7 +12,7 @@ output:
     highlight: default
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{Using Common Contrast Matrices}
+  %\VignetteIndexEntry{Using CALM Contrast Codes}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -26,84 +26,112 @@ knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,wa
 library(CALM)
 ```
 
-## Using Common Contrast Matrices
+## Using CALM Contrast Codes
 
 ### Overview
 
+`CALM` includes a complete set of commonly used coding schemes. These include extensions of the built-in contrast specifications in Base R and a modification of Venables's `codingMatrices` package. They can be used directly in linear model specifications.
 
-
-### Example: Treatment (First) Contrasts
+### Available Contrast Codes
 
 ```{r}
-treatment.first(3)
+mtcars
+mtcars$cyl = factor(mtcars$cyl) 
+tapply(mtcars$mpg,mtcars$cyl,mean)
+```
+
+#### Example: Treatment (First) Contrasts
+
+```{r}
 treatment.first(3,intercept=TRUE)
-calm.decode(treatment.first(3))
 calm.decode(treatment.first(3,intercept=TRUE))
 ```
 
-### Example: Treatment (Last) Contrasts
+```{r}
+contrasts(mtcars$cyl) = treatment.first(3)
+summary(lm(mpg~cyl, mtcars))$coefficients
+```
+
+#### Example: Treatment (Last) Contrasts
 
 ```{r}
-treatment.last(3)
 treatment.last(3,intercept=TRUE)
-calm.decode(treatment.last(3))
 calm.decode(treatment.last(3,intercept=TRUE))
 ```
 
-### Example: Deviation (First) Contrasts
+```{r}
+contrasts(mtcars$cyl) = treatment.last(3)
+summary(lm(mpg~cyl, mtcars))$coefficients
+```
+
+#### Example: Deviation (First) Contrasts
 
 ```{r}
-deviation.first(3)
 deviation.first(3,intercept=TRUE)
-calm.decode(deviation.first(3))
 calm.decode(deviation.first(3,intercept=TRUE))
 ```
 
-### Example: Deviation (Last) Contrasts
+```{r}
+contrasts(mtcars$cyl) = deviation.first(3)
+summary(lm(mpg~cyl, mtcars))$coefficients
+```
+
+#### Example: Deviation (Last) Contrasts
 
 ```{r}
-deviation.last(3)
 deviation.last(3,intercept=TRUE)
-calm.decode(deviation.last(3))
 calm.decode(deviation.last(3,intercept=TRUE))
 ```
 
-### Example: Helmert (Forward) Contrasts
+```{r}
+contrasts(mtcars$cyl) = deviation.last(3)
+summary(lm(mpg~cyl, mtcars))$coefficients
+```
+
+#### Example: Helmert (Forward) Contrasts
 
 ```{r}
-helmert.forward(3)
 helmert.forward(3,intercept=TRUE)
-calm.decode(helmert.forward(3))
 calm.decode(helmert.forward(3,intercept=TRUE))
 ```
 
-### Example: Helmert (Reverse) Contrasts
+```{r}
+contrasts(mtcars$cyl) = helmert.forward(3)
+summary(lm(mpg~cyl, mtcars))$coefficients
+```
+
+#### Example: Helmert (Reverse) Contrasts
 
 ```{r}
-helmert.reverse(3)
 helmert.reverse(3,intercept=TRUE)
-calm.decode(helmert.reverse(3))
 calm.decode(helmert.reverse(3,intercept=TRUE))
 ```
 
-### Example: Repeated (Forward) Contrasts
+```{r}
+contrasts(mtcars$cyl) = helmert.reverse(3)
+summary(lm(mpg~cyl, mtcars))$coefficients
+```
+
+#### Example: Repeated (Forward) Contrasts
 
 ```{r}
-repeated.forward(3)
 repeated.forward(3,intercept=TRUE)
-calm.decode(repeated.forward(3))
 calm.decode(repeated.forward(3,intercept=TRUE))
 ```
 
-### Example: Repeated (Reverse) Contrasts
+```{r}
+contrasts(mtcars$cyl) = repeated.forward(3)
+summary(lm(mpg~cyl, mtcars))$coefficients
+```
+
+#### Example: Repeated (Reverse) Contrasts
 
 ```{r}
-repeated.reverse(3)
 repeated.reverse(3,intercept=TRUE)
-calm.decode(repeated.reverse(3))
 calm.decode(repeated.reverse(3,intercept=TRUE))
 ```
 
-### References
-
-Wendorf, C. A. (2004). Primer on multiple regression coding: Common forms and the additional case of repeated contrasts. *Understanding Statistics, 3,* 47-57. 
+```{r}
+contrasts(mtcars$cyl) = repeated.reverse(3)
+summary(lm(mpg~cyl, mtcars))$coefficients
+```

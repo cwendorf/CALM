@@ -1,11 +1,105 @@
 
-## Producing Regression Codes from Hypotheses
+## Producing Codes from Hypotheses
 
 ### Overview
 
-Using the procedures outlined in Wendorf (2004), `CALM` takes a set of linear contrasts to be tested and encodes them into multiple regression coding schemes. In the examples below, the input shows linear contrast weights (rows represented the weights for the groups, columns represent the different groups). The obtained output provides the multiple regression coding pattern (where columns represent vector codes, rows represent the groups).
+Following Wendorf (2004), `CALM` can take a set of linear contrasts to be tested and encode them into coding schemes. In the examples below, the input shows linear contrast weights (rows represented the weights for the groups, columns represent the different groups). The obtained output provides the coding pattern (where columns represent vector codes, rows represent the groups).
 
-### Example: Deviation (Last) Contrasts
+### Custom Contrast Codes
+
+#### Example: Orthogonal Contrasts
+
+
+```r
+GM <- c(1/3,1/3,1/3)
+H1 <- c(1,-1/2,-1/2)
+H2 <- c(0,1,-1)
+ex_custom.orthogonal <- rbind(GM,H1,H2)
+calm.encode(ex_custom.orthogonal)
+```
+
+```
+##         GM    H1   H2
+## GROUP 1  1  0.67  0.0
+## GROUP 2  1 -0.33  0.5
+## GROUP 3  1 -0.33 -0.5
+```
+
+#### Example: Nonorthogonal Contrasts
+
+
+```r
+GM <- c(1,0,0)
+H1 <- c(1,-1/2,-1/2)
+H2 <- c(1,-1,0)
+ex_custom.nonorthogonal <- rbind(GM,H1,H2)
+calm.encode(ex_custom.nonorthogonal)
+```
+
+```
+##         GM H1 H2
+## GROUP 1  1  0  0
+## GROUP 2  1  0 -1
+## GROUP 3  1 -2  1
+```
+
+### Some Common Contrast Codes
+
+#### Example: Treatment (First) Contrasts
+
+
+```r
+M1 <- c(1,0,0)
+H1 <- c(-1,1,0)
+H2 <- c(-1,0,1)
+ex_treatment.first <- rbind(M1,H1,H2)
+calm.encode(ex_treatment.first)
+```
+
+```
+##         M1 H1 H2
+## GROUP 1  1  0  0
+## GROUP 2  1  1  0
+## GROUP 3  1  0  1
+```
+
+#### Example: Treatment (Last) Contrasts
+
+
+```r
+M3 <- c(0,0,1)
+H1 <- c(1,0,-1)
+H2 <- c(0,1,-1)
+ex_treatment.last <- rbind(M3,H1,H2)
+calm.encode(ex_treatment.last)
+```
+
+```
+##         M3 H1 H2
+## GROUP 1  1  1  0
+## GROUP 2  1  0  1
+## GROUP 3  1  0  0
+```
+
+#### Example: Deviation (First) Contrasts
+
+
+```r
+GM <- c(1/3,1/3,1/3)
+H1 <- c(2/3,-1/3,-1/3)
+H2 <- c(-1/3,2/3,-1/3)
+ex_deviation.first <- rbind(GM,H1,H2)
+calm.encode(ex_deviation.first)
+```
+
+```
+##         GM H1 H2
+## GROUP 1  1  1  0
+## GROUP 2  1  0  1
+## GROUP 3  1 -1 -1
+```
+
+#### Example: Deviation (Last) Contrasts
 
 
 ```r
@@ -23,7 +117,7 @@ calm.encode(ex_deviation.last)
 ## GROUP 3  1  0  1
 ```
 
-### Example: Helmert (Forward) Contrasts
+#### Example: Helmert (Forward) Contrasts
 
 
 ```r
@@ -41,7 +135,25 @@ calm.encode(ex_helmert.forward)
 ## GROUP 3  1 -0.33 -0.5
 ```
 
-### Example: Repeated (Forward) Contrasts
+#### Example: Helmert (Reverse) Contrasts
+
+
+```r
+GM <- c(1/3,1/3,1/3)
+H1 <- c(-1,1,0)
+H2 <- c(-1/2,-1/2,1)
+ex_helmert.reverse <- rbind(GM,H1,H2)
+calm.encode(ex_helmert.reverse)
+```
+
+```
+##         GM   H1    H2
+## GROUP 1  1 -0.5 -0.33
+## GROUP 2  1  0.5 -0.33
+## GROUP 3  1  0.0  0.67
+```
+
+#### Example: Repeated (Forward) Contrasts
 
 
 ```r
@@ -59,7 +171,7 @@ calm.encode(ex_repeated.forward)
 ## GROUP 3  1  1  1
 ```
 
-### Example: Repeated (Reverse) Contrasts
+#### Example: Repeated (Reverse) Contrasts
 
 
 ```r
@@ -75,24 +187,6 @@ calm.encode(ex_repeated.reverse)
 ## GROUP 1  1  1  1
 ## GROUP 2  1  1  0
 ## GROUP 3  1  0  0
-```
-
-### Example: Hypothesized Contrasts
-
-
-```r
-GM <- c(1/3,1/3,1/3)
-H1 <- c(1,-1/2,-1/2)
-H2 <- c(1,-1,0)
-ex_custom <- rbind(GM,H1,H2)
-calm.encode(ex_custom)
-```
-
-```
-##         GM    H1 H2
-## GROUP 1  1  0.67  0
-## GROUP 2  1  0.67 -1
-## GROUP 3  1 -1.33  1
 ```
 
 ### References

@@ -32,7 +32,7 @@ repeated.reverse <- function(n, intercept=FALSE, contrasts=TRUE, sparse=FALSE) {
   B[lower.tri(B,diag=TRUE)] <- 1
   B <- t(apply(B, 2, rev))
   B <- B[,-1]
-  dimnames(B) <- list(1:n, paste(levels[-1], levels[-n], sep = "-"))
+  dimnames(B) <- list(1:n, paste(levels[-n], levels[-1], sep = "-"))
   if(intercept) (B <- cbind(Int=1,B))   
   if(sparse){
     .asSparse(B)

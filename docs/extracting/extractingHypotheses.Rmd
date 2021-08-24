@@ -46,6 +46,8 @@ ex_dummy = matrix(c(
 calm.decode(ex_dummy)
 ```
 
+The intercept is equivalent to mean of the last group. Parameters represent the difference between each group and the last group. 
+
 #### Example: Effect Coding
 
 ```{r}
@@ -57,6 +59,8 @@ ex_effect = matrix(c(
     byrow=TRUE)
 calm.decode(ex_effect)
 ```
+
+The intercept is equivalent to mean of the group means. Parameter represent the difference between each group and the grand mean. The last group is not compared. 
 
 #### Example: Repeated Coding
 
@@ -70,42 +74,54 @@ ex_repeated = matrix(c(
 calm.decode(ex_repeated)
 ```
 
+The intercept is equivalent to mean of the first group. Parameter represent the difference between each group and the previous group. 
+
 ### Extracting from R Base Contrast Codes
 
 #### Example: contr.treatment
 
 ```{r}
-contr.treatment(3)
-calm.decode(contr.treatment(3))
+ex_contr.treatment = cbind(Int=1,contr.treatment(3))
+calm.decode(ex_contr.treatment)
 ```
+
+The intercept is equivalent to mean of the first group. Parameter represent the difference between each group and the first group. 
 
 #### Example: contr.SAS
 
 ```{r}
-contr.SAS(3)
-calm.decode(contr.SAS(3))
+ex_contr.SAS = cbind(Int=1,contr.SAS(3))
+calm.decode(ex_contr.SAS)
 ```
+
+The intercept is equivalent to mean of the last group. Parameter represent the difference between each group and the last group.
 
 #### Example: contr.sum
 
 ```{r}
-contr.sum(3)
-calm.decode(contr.sum(3))
+ex_contr.sum = cbind(Int=1,contr.sum(3))
+calm.decode(ex_contr.sum)
 ```
+
+The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the grand mean. The last group is not compared.
 
 #### Example: contr.helmert
 
 ```{r}
-contr.helmert(3)
-calm.decode(contr.helmert(3))
+ex_contr.helmert = cbind(Int=1,contr.helmert(3))
+calm.decode(ex_contr.helmert)
 ```
+
+The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the mean of the subsequent groups. 
 
 #### Example: contr.poly
 
 ```{r}
-contr.poly(3)
-calm.decode(contr.poly(3))
+ex_contr.poly = cbind(Int=1,contr.poly(3))
+calm.decode(ex_contr.poly)
 ```
+
+The intercept is equivalent to mean of the group means. Parameters represent polynomial trends (linear, quadratic, etc.).
 
 ### References
 

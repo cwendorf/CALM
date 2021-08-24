@@ -9,7 +9,7 @@ Following Wendorf (2004), `CALM` can take a set of linear contrasts to be tested
 
 #### Example: Treatment (First) Contrasts
 
-The intercept is equivalent to mean of the first group. Parameters represent the difference between each group and the first group. 
+The intercept is equivalent to the mean of the first group. Parameters represent the difference between each group and the first group. 
 
 
 ```r
@@ -29,7 +29,7 @@ calm.encode(ex_treatment.first)
 
 #### Example: Treatment (Last) Contrasts
 
-The intercept is equivalent to mean of the last group. Parameters represent the difference between each group and the last group. 
+The intercept is equivalent to the mean of the last group. Parameters represent the difference between each group and the last group. 
 
 
 ```r
@@ -49,7 +49,7 @@ calm.encode(ex_treatment.last)
 
 #### Example: Control (First) Contrasts
 
-The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the first group. 
+The intercept is equivalent to the mean of the group means. Parameters represent the difference between each group and the first group. 
 
 
 ```r
@@ -69,7 +69,7 @@ calm.encode(ex_control.first)
 
 #### Example: Control (Last) Contrasts
 
-The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the last group. 
+The intercept is equivalent to the mean of the group means. Parameters represent the difference between each group and the last group. 
 
 
 ```r
@@ -89,7 +89,7 @@ calm.encode(ex_control.last)
 
 #### Example: Deviation (First) Contrasts
 
-The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the grand mean. The first group is not compared. 
+The intercept is equivalent to the mean of the group means. Parameters represent the difference between each group and the grand mean. The first group is not compared. 
 
 
 ```r
@@ -109,7 +109,7 @@ calm.encode(ex_deviation.first)
 
 #### Example: Deviation (Last) Contrasts
 
-The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the grand mean. The last group is not compared. 
+The intercept is equivalent to the mean of the group means. Parameters represent the difference between each group and the grand mean. The last group is not compared. 
 
 
 ```r
@@ -129,7 +129,7 @@ calm.encode(ex_deviation.last)
 
 #### Example: Helmert (Forward) Contrasts
 
-The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the mean of the subsequent groups. 
+The intercept is equivalent to the mean of the group means. Parameters represent the difference between each group and the mean of the subsequent groups. 
 
 
 ```r
@@ -149,7 +149,7 @@ calm.encode(ex_helmert.forward)
 
 #### Example: Helmert (Reverse) Contrasts
 
-The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the mean of the previous groups. 
+The intercept is equivalent to the mean of the group means. Parameters represent the difference between each group and the mean of the previous groups. 
 
 
 ```r
@@ -169,7 +169,7 @@ calm.encode(ex_helmert.reverse)
 
 #### Example: Repeated (Forward) Contrasts
 
-The intercept is equivalent to mean of the first group. Parameters represent the difference between each group and the subsequent group. 
+The intercept is equivalent to the mean of the first group. Parameters represent the difference between each group and the subsequent group. 
 
 
 ```r
@@ -189,7 +189,7 @@ calm.encode(ex_repeated.forward)
 
 #### Example: Repeated (Reverse) Contrasts
 
-The intercept is equivalent to mean of the first group. Parameters represent the difference between each group and the previous group. 
+The intercept is equivalent to the mean of the first group. Parameters represent the difference between each group and the previous group. 
 
 
 ```r
@@ -209,7 +209,7 @@ calm.encode(ex_repeated.reverse)
 
 #### Example: Difference (Forward) Contrasts
 
-The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the subsequent group. 
+The intercept is equivalent to the mean of the group means. Parameters represent the difference between each group and the subsequent group. 
 
 
 ```r
@@ -229,7 +229,7 @@ calm.encode(ex_difference.forward)
 
 #### Example: Difference (Reverse) Contrasts
 
-The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the previous group. 
+The intercept is equivalent to the mean of the group means. Parameters represent the difference between each group and the previous group. 
 
 
 ```r
@@ -251,7 +251,7 @@ calm.encode(ex_difference.reverse)
 
 #### Example: Orthogonal Contrasts
 
-In this custom example, the intercept is equivalent to mean of the group means. The first parameter represents the difference between the first group and mean of the subsequent groups. The second parameter represents the difference between the second and third groups.
+In this custom example, the intercept is equivalent to the mean of the group means. The first parameter represents the difference between the first group and mean of the subsequent groups. The second parameter represents the difference between the second and third groups.
 
 
 ```r
@@ -271,7 +271,7 @@ calm.encode(ex_custom.orthogonal)
 
 #### Example: Nonorthogonal Contrasts
 
-In this custom example, the intercept is equivalent to mean of the first group. The first parameter represents the difference between the first group and mean of the subsequent groups. The second parameter represents the difference between the first and second groups.
+In this custom example, the intercept is equivalent to the mean of the first group. The first parameter represents the difference between the first group and mean of the subsequent groups. The second parameter represents the difference between the first and second groups.
 
 
 ```r

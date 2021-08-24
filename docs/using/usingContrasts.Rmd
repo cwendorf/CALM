@@ -51,7 +51,7 @@ contrasts(mtcars$cyl) = treatment.first(3)
 summary(lm(mpg~cyl, mtcars))$coefficients
 ```
 
-The intercept is equivalent to mean of the first group. Parameters represent the difference between each group and the first group.
+The intercept is equivalent to the mean of the first group. Parameters represent the difference between each group and the first group.
 
 #### Example: Treatment (Last) Contrasts
 
@@ -60,7 +60,7 @@ contrasts(mtcars$cyl) = treatment.last(3)
 summary(lm(mpg~cyl, mtcars))$coefficients
 ```
 
-The intercept is equivalent to mean of the last group. Parameters represent the difference between each group and the last group.
+The intercept is equivalent to the mean of the last group. Parameters represent the difference between each group and the last group.
 
 #### Example: Control (First) Contrasts
 
@@ -69,11 +69,11 @@ contrasts(mtcars$cyl) = control.first(3)
 summary(lm(mpg~cyl, mtcars))$coefficients
 ```
 
-The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the first group.
+The intercept is equivalent to the mean of the group means. Parameters represent the difference between each group and the first group.
 
 #### Example: Control (Last) Contrasts
 
-The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the last group.
+The intercept is equivalent to the mean of the group means. Parameters represent the difference between each group and the last group.
 
 ```{r}
 contrasts(mtcars$cyl) = control.last(3)
@@ -86,7 +86,7 @@ summary(lm(mpg~cyl, mtcars))$coefficients
 contrasts(mtcars$cyl) = deviation.first(3)
 summary(lm(mpg~cyl, mtcars))$coefficients
 ```
-The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the grand mean. The first group is not compared. 
+The intercept is equivalent to the mean of the group means. Parameters represent the difference between each group and the grand mean. The first group is not compared. 
 
 #### Example: Deviation (Last) Contrasts
 
@@ -95,7 +95,7 @@ contrasts(mtcars$cyl) = deviation.last(3)
 summary(lm(mpg~cyl, mtcars))$coefficients
 ```
 
-The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the grand mean. The last group is not compared.
+The intercept is equivalent to the mean of the group means. Parameters represent the difference between each group and the grand mean. The last group is not compared.
 
 #### Example: Helmert (Forward) Contrasts
 
@@ -104,7 +104,7 @@ contrasts(mtcars$cyl) = helmert.forward(3)
 summary(lm(mpg~cyl, mtcars))$coefficients
 ```
 
-The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the mean of the subsequent groups. 
+The intercept is equivalent to the mean of the group means. Parameters represent the difference between each group and the mean of the subsequent groups. 
 
 #### Example: Helmert (Reverse) Contrasts
 
@@ -112,7 +112,7 @@ The intercept is equivalent to mean of the group means. Parameters represent the
 contrasts(mtcars$cyl) = helmert.reverse(3)
 summary(lm(mpg~cyl, mtcars))$coefficients
 ```
-The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the mean of the previous groups.
+The intercept is equivalent to the mean of the group means. Parameters represent the difference between each group and the mean of the previous groups.
 
 #### Example: Repeated (Forward) Contrasts
 
@@ -121,7 +121,7 @@ contrasts(mtcars$cyl) = repeated.forward(3)
 summary(lm(mpg~cyl, mtcars))$coefficients
 ```
 
-The intercept is equivalent to mean of the first group. Parameters represent the difference between each group and the subsequent group.
+The intercept is equivalent to the mean of the first group. Parameters represent the difference between each group and the subsequent group.
 
 #### Example: Repeated (Reverse) Contrasts
 
@@ -130,7 +130,7 @@ contrasts(mtcars$cyl) = repeated.reverse(3)
 summary(lm(mpg~cyl, mtcars))$coefficients
 ```
 
-The intercept is equivalent to mean of the first group. Parameters represent the difference between each group and the previous group.
+The intercept is equivalent to the mean of the first group. Parameters represent the difference between each group and the previous group.
 
 #### Example: Difference (Forward) Contrasts
 
@@ -139,7 +139,7 @@ contrasts(mtcars$cyl) = difference.forward(3)
 summary(lm(mpg~cyl, mtcars))$coefficients
 ```
 
-The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the subsequent group. 
+The intercept is equivalent to the mean of the group means. Parameters represent the difference between each group and the subsequent group. 
 
 #### Example: Difference (Reverse) Contrasts
 
@@ -148,7 +148,7 @@ contrasts(mtcars$cyl) = difference.reverse(3)
 summary(lm(mpg~cyl, mtcars))$coefficients
 ```
 
-The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the previous group. 
+The intercept is equivalent to the mean of the group means. Parameters represent the difference between each group and the previous group. 
 
 ### Custom Contrast Codes
 
@@ -168,7 +168,7 @@ contrasts(mtcars$cyl) = custom.orthogonal[,-1]
 summary(lm(mpg~cyl, mtcars))$coefficients
 ```
 
-In this custom example, the intercept is equivalent to mean of the group means. The first parameter represents the difference between the first group and mean of the subsequent groups. The second parameter represents the difference between the second and third groups.
+In this custom example, the intercept is equivalent to the mean of the group means. The first parameter represents the difference between the first group and mean of the subsequent groups. The second parameter represents the difference between the second and third groups.
 
 #### Example: Nonorthogonal Contrasts
 
@@ -186,4 +186,4 @@ contrasts(mtcars$cyl) = custom.nonorthogonal[,-1]
 summary(lm(mpg~cyl, mtcars))$coefficients
 ```
 
-In this custom example, the intercept is equivalent to mean of the first group. The first parameter represents the difference between the first group and mean of the subsequent groups. The second parameter represents the difference between the first and second groups.
+In this custom example, the intercept is equivalent to the mean of the first group. The first parameter represents the difference between the first group and mean of the subsequent groups. The second parameter represents the difference between the first and second groups.

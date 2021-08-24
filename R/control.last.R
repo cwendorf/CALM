@@ -8,7 +8,7 @@
 
 ### Original Code: codingMatrices
 
-control_last <- function(n, intercept=FALSE,contrasts = TRUE, sparse = FALSE) {
+control.last <- function(n, intercept=FALSE,contrasts = TRUE, sparse = FALSE) {
   if (is.numeric(n) && length(n) == 1L) {
     if (n > 1L)
       levels <- .zf(seq_len(n))

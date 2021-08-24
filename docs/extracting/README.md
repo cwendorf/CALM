@@ -27,6 +27,8 @@ calm.decode(ex_dummy)
 ## HYPOTH 3       0       1      -1
 ```
 
+The intercept is equivalent to mean of the last group. Parameters represent the difference between each group and the last group. 
+
 #### Example: Effect Coding
 
 
@@ -46,6 +48,8 @@ calm.decode(ex_effect)
 ## HYPOTH 2    0.67   -0.33   -0.33
 ## HYPOTH 3   -0.33    0.67   -0.33
 ```
+
+The intercept is equivalent to mean of the group means. Parameter represent the difference between each group and the grand mean. The last group is not compared. 
 
 #### Example: Repeated Coding
 
@@ -67,127 +71,94 @@ calm.decode(ex_repeated)
 ## HYPOTH 3       0      -1       1
 ```
 
+The intercept is equivalent to mean of the first group. Parameter represent the difference between each group and the previous group. 
+
 ### Extracting from R Base Contrast Codes
 
 #### Example: contr.treatment
 
 
 ```r
-contr.treatment(3)
+ex_contr.treatment = cbind(Int=1,contr.treatment(3))
+calm.decode(ex_contr.treatment)
 ```
 
 ```
-##   2 3
-## 1 0 0
-## 2 1 0
-## 3 0 1
+##      1 2 3
+## Int  1 0 0
+## 2   -1 1 0
+## 3   -1 0 1
 ```
 
-```r
-calm.decode(contr.treatment(3))
-```
-
-```
-##   1 2 3
-## 2 0 1 0
-## 3 0 0 1
-```
+The intercept is equivalent to mean of the first group. Parameter represent the difference between each group and the first group. 
 
 #### Example: contr.SAS
 
 
 ```r
-contr.SAS(3)
+ex_contr.SAS = cbind(Int=1,contr.SAS(3))
+calm.decode(ex_contr.SAS)
 ```
 
 ```
-##   1 2
-## 1 1 0
-## 2 0 1
-## 3 0 0
+##     1 2  3
+## Int 0 0  1
+## 1   1 0 -1
+## 2   0 1 -1
 ```
 
-```r
-calm.decode(contr.SAS(3))
-```
-
-```
-##   1 2 3
-## 1 1 0 0
-## 2 0 1 0
-```
+The intercept is equivalent to mean of the last group. Parameter represent the difference between each group and the last group.
 
 #### Example: contr.sum
 
 
 ```r
-contr.sum(3)
+ex_contr.sum = cbind(Int=1,contr.sum(3))
+calm.decode(ex_contr.sum)
 ```
 
 ```
-##   [,1] [,2]
-## 1    1    0
-## 2    0    1
-## 3   -1   -1
+##         1     2     3
+## Int  0.33  0.33  0.33
+##      0.67 -0.33 -0.33
+##     -0.33  0.67 -0.33
 ```
 
-```r
-calm.decode(contr.sum(3))
-```
-
-```
-##              1     2     3
-## HYPOTH 1  0.67 -0.33 -0.33
-## HYPOTH 2 -0.33  0.67 -0.33
-```
+The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the grand mean. The last group is not compared.
 
 #### Example: contr.helmert
 
 
 ```r
-contr.helmert(3)
+ex_contr.helmert = cbind(Int=1,contr.helmert(3))
+calm.decode(ex_contr.helmert)
 ```
 
 ```
-##   [,1] [,2]
-## 1   -1   -1
-## 2    1   -1
-## 3    0    2
+##         1     2    3
+## Int  0.33  0.33 0.33
+##     -0.50  0.50 0.00
+##     -0.17 -0.17 0.33
 ```
 
-```r
-calm.decode(contr.helmert(3))
-```
-
-```
-##              1     2    3
-## HYPOTH 1 -0.50  0.50 0.00
-## HYPOTH 2 -0.17 -0.17 0.33
-```
+The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the mean of the subsequent groups. 
 
 #### Example: contr.poly
 
 
 ```r
-contr.poly(3)
+ex_contr.poly = cbind(Int=1,contr.poly(3))
+calm.decode(ex_contr.poly)
 ```
 
 ```
-##                 .L         .Q
-## [1,] -7.071068e-01  0.4082483
-## [2,] -7.850462e-17 -0.8164966
-## [3,]  7.071068e-01  0.4082483
+##     GROUP 1 GROUP 2 GROUP 3
+## Int    0.33    0.33    0.33
+## .L    -0.71    0.00    0.71
+## .Q     0.41   -0.82    0.41
 ```
 
-```r
-calm.decode(contr.poly(3))
-```
-
-```
-##    GROUP 1 GROUP 2 GROUP 3
-## .L   -0.71    0.00    0.71
-## .Q    0.41   -0.82    0.41
-```
+The intercept is equivalent to mean of the group means. Parameters represent polynomial trends (linear, quadratic, etc.).
 
 ### References
 

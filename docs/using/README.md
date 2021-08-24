@@ -1,11 +1,13 @@
 
-## Using CALM Contrast Codes
+## Using Contrast Codes
 
 ### Overview
 
-`CALM` includes a complete set of commonly used coding schemes. These include extensions of the built-in contrast specifications in Base R and a modification of Venables's `codingMatrices` package. They can be used directly in linear model specifications.
+`CALM` includes a complete set of commonly used coding schemes. These include extensions of the built-in contrast specifications in Base R and a modification of Venables's `codingMatrices` package. They can be used directly in linear model specifications. It is also possible to develop custom codes to test specific hypotheses.
 
-### Available Contrast Codes
+### The Basic Example
+
+For the sake of example, this site uses the following data. For reference, the group means are displayed.
 
 
 ```r
@@ -58,30 +60,9 @@ tapply(mtcars$mpg,mtcars$cyl,mean)
 ## 26.66364 19.74286 15.10000
 ```
 
+### Available Contrast Codes
+
 #### Example: Treatment (First) Contrasts
-
-
-```r
-treatment.first(3,intercept=TRUE)
-```
-
-```
-##   Int 2-1 3-1
-## 1   1   0   0
-## 2   1   1   0
-## 3   1   0   1
-```
-
-```r
-calm.decode(treatment.first(3,intercept=TRUE))
-```
-
-```
-##      1 2 3
-## Int  1 0 0
-## 2-1 -1 1 0
-## 3-1 -1 0 1
-```
 
 
 ```r
@@ -96,30 +77,9 @@ summary(lm(mpg~cyl, mtcars))$coefficients
 ## cyl3-1      -11.563636  1.2986235 -8.904534 8.568209e-10
 ```
 
+The intercept is equivalent to mean of the first group. Parameters represent the difference between each group and the first group.
+
 #### Example: Treatment (Last) Contrasts
-
-
-```r
-treatment.last(3,intercept=TRUE)
-```
-
-```
-##   Int 1-3 2-3
-## 1   1   1   0
-## 2   1   0   1
-## 3   1   0   0
-```
-
-```r
-calm.decode(treatment.last(3,intercept=TRUE))
-```
-
-```
-##     1 2  3
-## Int 0 0  1
-## 1-3 1 0 -1
-## 2-3 0 1 -1
-```
 
 
 ```r
@@ -134,30 +94,43 @@ summary(lm(mpg~cyl, mtcars))$coefficients
 ## cyl2-3       4.642857  1.4920048  3.111825 4.152209e-03
 ```
 
+The intercept is equivalent to mean of the last group. Parameters represent the difference between each group and the last group.
+
+#### Example: Control (First) Contrasts
+
+
+```r
+contrasts(mtcars$cyl) = control.first(3)
+summary(lm(mpg~cyl, mtcars))$coefficients
+```
+
+```
+##               Estimate Std. Error   t value     Pr(>|t|)
+## (Intercept)  20.502165  0.5935276 34.542900 4.102221e-25
+## cyl2-1       -6.920779  1.5583482 -4.441099 1.194696e-04
+## cyl3-1      -11.563636  1.2986235 -8.904534 8.568209e-10
+```
+
+The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the first group.
+
+#### Example: Control (Last) Contrasts
+
+The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the last group.
+
+
+```r
+contrasts(mtcars$cyl) = control.last(3)
+summary(lm(mpg~cyl, mtcars))$coefficients
+```
+
+```
+##              Estimate Std. Error   t value     Pr(>|t|)
+## (Intercept) 20.502165  0.5935276 34.542900 4.102221e-25
+## cyl1-3      11.563636  1.2986235  8.904534 8.568209e-10
+## cyl2-3       4.642857  1.4920048  3.111825 4.152209e-03
+```
+
 #### Example: Deviation (First) Contrasts
-
-
-```r
-deviation.first(3,intercept=TRUE)
-```
-
-```
-##   Int MD2 MD3
-## 1   1  -1  -1
-## 2   1   1   0
-## 3   1   0   1
-```
-
-```r
-calm.decode(deviation.first(3,intercept=TRUE))
-```
-
-```
-##         1     2     3
-## Int  0.33  0.33  0.33
-## MD2 -0.33  0.67 -0.33
-## MD3 -0.33 -0.33  0.67
-```
 
 
 ```r
@@ -171,31 +144,9 @@ summary(lm(mpg~cyl, mtcars))$coefficients
 ## cylMD2      -0.7593074  0.9203038 -0.8250616 4.160721e-01
 ## cylMD3      -5.4021645  0.7743494 -6.9763911 1.139163e-07
 ```
+The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the grand mean. The first group is not compared. 
 
 #### Example: Deviation (Last) Contrasts
-
-
-```r
-deviation.last(3,intercept=TRUE)
-```
-
-```
-##   Int MD1 MD2
-## 1   1   1   0
-## 2   1   0   1
-## 3   1  -1  -1
-```
-
-```r
-calm.decode(deviation.last(3,intercept=TRUE))
-```
-
-```
-##         1     2     3
-## Int  0.33  0.33  0.33
-## MD1  0.67 -0.33 -0.33
-## MD2 -0.33  0.67 -0.33
-```
 
 
 ```r
@@ -210,30 +161,9 @@ summary(lm(mpg~cyl, mtcars))$coefficients
 ## cylMD2      -0.7593074  0.9203038 -0.8250616 4.160721e-01
 ```
 
+The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the grand mean. The last group is not compared.
+
 #### Example: Helmert (Forward) Contrasts
-
-
-```r
-helmert.forward(3,intercept=TRUE)
-```
-
-```
-##   Int        FH1  FH2
-## 1   1  0.6666667  0.0
-## 2   1 -0.3333333  0.5
-## 3   1 -0.3333333 -0.5
-```
-
-```r
-calm.decode(helmert.forward(3,intercept=TRUE))
-```
-
-```
-##        1     2     3
-## Int 0.33  0.33  0.33
-## FH1 1.00 -0.50 -0.50
-## FH2 0.00  1.00 -1.00
-```
 
 
 ```r
@@ -248,30 +178,9 @@ summary(lm(mpg~cyl, mtcars))$coefficients
 ## cylFH2       4.642857  1.4920048  3.111825 4.152209e-03
 ```
 
+The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the mean of the subsequent groups. 
+
 #### Example: Helmert (Reverse) Contrasts
-
-
-```r
-helmert.reverse(3,intercept=TRUE)
-```
-
-```
-##   Int   H2         H3
-## 1   1 -0.5 -0.3333333
-## 2   1  0.5 -0.3333333
-## 3   1  0.0  0.6666667
-```
-
-```r
-calm.decode(helmert.reverse(3,intercept=TRUE))
-```
-
-```
-##         1     2    3
-## Int  0.33  0.33 0.33
-## H2  -1.00  1.00 0.00
-## H3  -0.50 -0.50 1.00
-```
 
 
 ```r
@@ -285,31 +194,9 @@ summary(lm(mpg~cyl, mtcars))$coefficients
 ## cylH2       -6.920779  1.5583482 -4.441099 1.194696e-04
 ## cylH3       -8.103247  1.1615242 -6.976391 1.139163e-07
 ```
+The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the mean of the previous groups.
 
 #### Example: Repeated (Forward) Contrasts
-
-
-```r
-repeated.forward(3,intercept=TRUE)
-```
-
-```
-##   Int 2-1 3-2
-## 1   1   0   0
-## 2   1   1   0
-## 3   1   1   1
-```
-
-```r
-calm.decode(repeated.forward(3,intercept=TRUE))
-```
-
-```
-##      1  2 3
-## Int  1  0 0
-## 2-1 -1  1 0
-## 3-2  0 -1 1
-```
 
 
 ```r
@@ -320,34 +207,13 @@ summary(lm(mpg~cyl, mtcars))$coefficients
 ```
 ##              Estimate Std. Error   t value     Pr(>|t|)
 ## (Intercept) 26.663636  0.9718008 27.437347 2.688358e-22
-## cyl2-1      -6.920779  1.5583482 -4.441099 1.194696e-04
-## cyl3-2      -4.642857  1.4920048 -3.111825 4.152209e-03
+## cyl1-2       6.920779  1.5583482  4.441099 1.194696e-04
+## cyl2-3       4.642857  1.4920048  3.111825 4.152209e-03
 ```
+
+The intercept is equivalent to mean of the first group. Parameters represent the difference between each group and the subsequent group.
 
 #### Example: Repeated (Reverse) Contrasts
-
-
-```r
-repeated.reverse(3,intercept=TRUE)
-```
-
-```
-##   Int 1-2 2-3
-## 1   1   1   1
-## 2   1   1   0
-## 3   1   0   0
-```
-
-```r
-calm.decode(repeated.reverse(3,intercept=TRUE))
-```
-
-```
-##     1  2  3
-## Int 0  0  1
-## 1-2 0  1 -1
-## 2-3 1 -1  0
-```
 
 
 ```r
@@ -357,7 +223,113 @@ summary(lm(mpg~cyl, mtcars))$coefficients
 
 ```
 ##              Estimate Std. Error   t value     Pr(>|t|)
-## (Intercept) 15.100000  0.8614094 17.529412 5.660681e-17
-## cyl1-2       4.642857  1.4920048  3.111825 4.152209e-03
-## cyl2-3       6.920779  1.5583482  4.441099 1.194696e-04
+## (Intercept) 26.663636  0.9718008 27.437347 2.688358e-22
+## cyl2-1      -6.920779  1.5583482 -4.441099 1.194696e-04
+## cyl3-2      -4.642857  1.4920048 -3.111825 4.152209e-03
 ```
+
+The intercept is equivalent to mean of the first group. Parameters represent the difference between each group and the previous group.
+
+#### Example: Difference (Forward) Contrasts
+
+
+```r
+contrasts(mtcars$cyl) = difference.forward(3)
+summary(lm(mpg~cyl, mtcars))$coefficients
+```
+
+```
+##              Estimate Std. Error   t value     Pr(>|t|)
+## (Intercept) 20.502165  0.5935276 34.542900 4.102221e-25
+## cyl1-2       6.920779  1.5583482  4.441099 1.194696e-04
+## cyl2-3       4.642857  1.4920048  3.111825 4.152209e-03
+```
+
+The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the subsequent group. 
+
+#### Example: Difference (Reverse) Contrasts
+
+
+```r
+contrasts(mtcars$cyl) = difference.reverse(3)
+summary(lm(mpg~cyl, mtcars))$coefficients
+```
+
+```
+##              Estimate Std. Error   t value     Pr(>|t|)
+## (Intercept) 20.502165  0.5935276 34.542900 4.102221e-25
+## cyl2-1      -6.920779  1.5583482 -4.441099 1.194696e-04
+## cyl3-2      -4.642857  1.4920048 -3.111825 4.152209e-03
+```
+
+The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the previous group. 
+
+### Custom Contrast Codes
+
+#### Example: Orthogonal Contrasts
+
+
+```r
+GM <- c(1/3,1/3,1/3)
+H1 <- c(1,-1/2,-1/2)
+H2 <- c(0,1,-1)
+ex_custom.orthogonal <- rbind(GM,H1,H2)
+custom.orthogonal = calm.encode(ex_custom.orthogonal)
+custom.orthogonal
+```
+
+```
+##         GM    H1   H2
+## GROUP 1  1  0.67  0.0
+## GROUP 2  1 -0.33  0.5
+## GROUP 3  1 -0.33 -0.5
+```
+
+
+```r
+contrasts(mtcars$cyl) = custom.orthogonal[,-1]
+summary(lm(mpg~cyl, mtcars))$coefficients
+```
+
+```
+##              Estimate Std. Error   t value     Pr(>|t|)
+## (Intercept) 20.471357  0.5938573 34.471847 4.348656e-25
+## cylH1        9.242208  1.2251189  7.543927 2.574044e-08
+## cylH2        4.642857  1.4920048  3.111825 4.152209e-03
+```
+
+In this custom example, the intercept is equivalent to mean of the group means. The first parameter represents the difference between the first group and mean of the subsequent groups. The second parameter represents the difference between the second and third groups.
+
+#### Example: Nonorthogonal Contrasts
+
+
+```r
+GM <- c(1,0,0)
+H1 <- c(1,-1/2,-1/2)
+H2 <- c(1,-1,0)
+ex_custom.nonorthogonal <- rbind(GM,H1,H2)
+custom.nonorthogonal = calm.encode(ex_custom.nonorthogonal)
+custom.nonorthogonal
+```
+
+```
+##         GM H1 H2
+## GROUP 1  1  0  0
+## GROUP 2  1  0 -1
+## GROUP 3  1 -2  1
+```
+
+
+```r
+contrasts(mtcars$cyl) = custom.nonorthogonal[,-1]
+summary(lm(mpg~cyl, mtcars))$coefficients
+```
+
+```
+##              Estimate Std. Error   t value     Pr(>|t|)
+## (Intercept) 26.663636  0.9718008 27.437347 2.688358e-22
+## cylH1        9.242208  1.2251189  7.543927 2.574044e-08
+## cylH2        6.920779  1.5583482  4.441099 1.194696e-04
+```
+
+In this custom example, the intercept is equivalent to mean of the first group. The first parameter represents the difference between the first group and mean of the subsequent groups. The second parameter represents the difference between the first and second groups.

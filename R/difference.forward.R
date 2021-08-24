@@ -1,14 +1,14 @@
 # Contrast Algorithms for Linear Models
-## Contrast: Deviation (First)
+## Contrast: Difference (Forward)
 
 ### R Equivalent: none
 ### SPSS Equivalent: none
 ### MR Equivalent: none
-### codingMatrices Equivalent: deviation_first
+### codingMatrices Equivalent: diff_forward
 
 ### Original Code: codingMatrices
 
-deviation.first <- function(n, intercept=FALSE, contrasts=TRUE, sparse=FALSE) {
+difference.forward <- function(n, intercept=FALSE,contrasts = TRUE, sparse = FALSE) {
   if (is.numeric(n) && length(n) == 1L) {
     if (n > 1L)
       levels <- .zf(seq_len(n))
@@ -24,9 +24,16 @@ deviation.first <- function(n, intercept=FALSE, contrasts=TRUE, sparse=FALSE) {
     if(sparse) B <- .asSparse(B)
     return(B)
   }
-  B <- rbind(-1, diag(n-1))
-  dimnames(B) <- list(1:n, paste0("MD", .zf(2:n)))
-  if(intercept) (B <- cbind(Int=1,B))  
+  if(max(nchar(levels)) > 3) {
+    levels <- paste0("m", .zf(seq_len(n)))
+  }
+  B <- 1 - col(matrix(0, n, n))
+  ut <- upper.tri(B)
+  B[ut] <- n + B[ut]
+  B <- B[, -1, drop = FALSE]/n
+  dimnames(B) <- list(1:n,
+                      paste(levels[-n], levels[-1], sep = "-"))
+  if(intercept) (B <- cbind(Int=1,B))
   if(sparse){
     .asSparse(B)
   } else {

@@ -4,10 +4,9 @@
 ### R Equivalent: helmert
 ### SPSS Equivalent: difference
 ### MR Equivalent: none
-### codingMatrices Parallel: helmert
+### codingMatrices Equivalent: helmert
 
 ### Original Code: codingMatrices
-### Dimnames Code: codingMatrices
 
 helmert.reverse <- function (n, intercept=FALSE, contrasts=TRUE, sparse=FALSE) {
     if (is.numeric(n) && length(n) == 1L) {

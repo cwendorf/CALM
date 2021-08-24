@@ -2,12 +2,11 @@
 ## Contrast: Repeated (Reverse)
 
 ### R Equivalent: none
-### SPSS Equivalent: none
-### MR Equivalent: none
-### codingMatrices Parallel: diff
+### SPSS Equivalent: repeated
+### MR Equivalent: repeated
+### codingMatrices Equivalent: none
 
 ### Original Code: codingMatrices
-### Dimnames Code: codingMatrices
 
 repeated.reverse <- function(n, intercept=FALSE, contrasts=TRUE, sparse=FALSE) {
   if (is.numeric(n) && length(n) == 1L) {
@@ -30,9 +29,8 @@ repeated.reverse <- function(n, intercept=FALSE, contrasts=TRUE, sparse=FALSE) {
   }
   B <- matrix(0,n,n)
   B[lower.tri(B,diag=TRUE)] <- 1
-  B <- t(apply(B, 2, rev))
   B <- B[,-1]
-  dimnames(B) <- list(1:n, paste(levels[-n], levels[-1], sep = "-"))
+  dimnames(B) <- list(1:n, paste(levels[-1], levels[-n], sep = "-"))
   if(intercept) (B <- cbind(Int=1,B))   
   if(sparse){
     .asSparse(B)

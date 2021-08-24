@@ -4,7 +4,8 @@
 calm.encode <- function(L,digits=2) {
   X <- t(L) %*% solve(L %*% t(L))
   rownames(X)=rownames(X,do.NULL=FALSE,prefix="GROUP ")
-  colnames(X)=colnames(X,do.NULL=FALSE,prefix="CODE ")  
+  colnames(X)=colnames(X,do.NULL=FALSE,prefix="CODE ")
+
   return(round(X,digits))
 }
 

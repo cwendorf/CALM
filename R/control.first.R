@@ -1,14 +1,14 @@
 # Contrast Algorithms for Linear Models
-## Contrast: Deviation (First)
+## Contrast: Control (First)
 
 ### R Equivalent: none
 ### SPSS Equivalent: none
 ### MR Equivalent: none
-### codingMatrices Equivalent: deviation_first
+### codingMatrices Equivalent: control
 
 ### Original Code: codingMatrices
 
-deviation.first <- function(n, intercept=FALSE, contrasts=TRUE, sparse=FALSE) {
+control.first <- function(n, intercept=FALSE, contrasts = TRUE, sparse = FALSE) {
   if (is.numeric(n) && length(n) == 1L) {
     if (n > 1L)
       levels <- .zf(seq_len(n))
@@ -18,15 +18,19 @@ deviation.first <- function(n, intercept=FALSE, contrasts=TRUE, sparse=FALSE) {
     levels <- as.character(n)
     n <- length(n)
   }
+  B <- diag(n)
+  dimnames(B) <- list(1:n, levels)
   if(!contrasts) {
-    B <- diag(n)
-    dimnames(B) <- list(1:n, levels)
     if(sparse) B <- .asSparse(B)
     return(B)
   }
-  B <- rbind(-1, diag(n-1))
-  dimnames(B) <- list(1:n, paste0("MD", .zf(2:n)))
-  if(intercept) (B <- cbind(Int=1,B))  
+  if(max(nchar(levels)) > 3) {
+    levels <- paste0("m", .zf(seq_len(n)))
+  }
+  B <- B - 1/n
+  B <- B[, -1, drop = FALSE]
+  colnames(B) <- paste(levels[-1], levels[1], sep="-")
+  if(intercept) (B <- cbind(Int=1,B))
   if(sparse){
     .asSparse(B)
   } else {

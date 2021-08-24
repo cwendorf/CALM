@@ -4,10 +4,9 @@
 ### R Equivalent: none
 ### SPSS Equivalent: helmert
 ### MR Equivalent: none
-### codingMatrices Parallel: helmert_forward
+### codingMatrices Equivalent: helmert_forward
 
 ### Original Code: codingMatrices
-### Dimnames Code: codingMatrices
 
 helmert.forward <- function(n, intercept=FALSE, contrasts=TRUE, sparse=FALSE) {
   if (is.numeric(n) && length(n) == 1L) {

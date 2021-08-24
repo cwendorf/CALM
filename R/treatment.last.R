@@ -4,10 +4,9 @@
 ### R Equivalent: contr.SAS
 ### SPSS Equivalent: simple (last)
 ### MR Equivalent: dummy
-### codingMatrices Parallel: control_last
+### codingMatrices Equivalent: none
 
 ### Original Code: R Base
-### Dimnames Code: codingMatrices
 
 treatment.last <- function (n, intercept=FALSE, contrasts=TRUE, sparse=FALSE) {
     base <- if (is.numeric(n) && length(n) == 1L) n else length(n)

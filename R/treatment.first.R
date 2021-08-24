@@ -4,10 +4,9 @@
 ### R Equivalent: contr.treatment
 ### SPSS Equivalent: simple (first)
 ### MR Equivalent: none
-### codingMatrices Parallel: control
+### codingMatrices Equivalent: none
 
 ### Original Code: R Base
-### Dimnames Code: codingMatrices
 
 treatment.first <- function (n, base=1, intercept=FALSE, contrasts=TRUE, sparse=FALSE) {
     if (is.numeric(n) && length(n) == 1L) {

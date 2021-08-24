@@ -4,10 +4,9 @@
 ### R Equivalent: contr.sum
 ### SPSS Equivalent: deviation
 ### MR Equivalent: effect
-### codingMatrices Parallel: deviation
+### codingMatrices Equivalent: deviation
 
 ### Original Code: R Base
-### Dimnames Code: codingMatrices
 
 deviation.last <- function (n, intercept=FALSE, contrasts=TRUE, sparse=FALSE) {
     if (length(n) <= 1L) {

@@ -34,7 +34,7 @@ source("http://raw.githubusercontent.com/cwendorf/CALM/main/source-CALM.R")
 Basic documentation and examples are available:  
 [https://cwendorf.github.io/CALM/](https://cwendorf.github.io/CALM/)
 
-- Examples for extracting hypotheses from existing coding patterns (multiple regression codes and contrast codes)
+- Examples for extracting hypotheses from existing coding patterns
 - Examples for producing codes from contrast hypotheses
 - Examples for using custom and predefined codes in linear models
 

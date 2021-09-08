@@ -25,7 +25,7 @@
       #logo {display: block; height: 50px; padding: 0px; margin: 0px; background: none;}
 
       #nav {display: inline-block; font-weight: bold; font-size: 18px; margin: 12px 0px;}
-      #nav a {text-decoration: none; margin: 10px 0px; padding: 12px 10px; color: black;}
+      #nav a {text-decoration: none; margin: 12px 0px; padding: 12px 10px; color: black;}
       #nav a:hover {background: #ddd; color: #224488; }
      
       #repository {float: right; padding: 0px 0px;}
@@ -96,9 +96,8 @@
       </div>      
 
       <div id=nav>
-        <a href="{{ "/extracting/" | prepend: site.baseurl }}" alt="Extracting">Extracting</a>
-        <a href="{{ "/producing/" | prepend: site.baseurl }}" alt="Producing">Producing</a>        
-        <a href="{{ "/using/" | prepend: site.baseurl }}" alt="Using">Using</a>
+        <a href="{{ "/" | absolute_url }}" alt="Home">Home</a>
+        <a href="{{ "/examples/" | prepend: site.baseurl }}" alt="Examples">Examples</a>
       </div>
 
     </div>
@@ -107,10 +106,9 @@
     <div id=dropdown>
 
       <ul>
-        <li class=""><a href="{{ "/extracting/" | prepend: site.baseurl }}" alt="Extracting" class="">Extracting</a></li>
-        <li class=""><a href="{{ "/producing/" | prepend: site.baseurl }}" alt="Producing" class="">Producing</a></li>
-        <li class=""><a href="{{ "/using/" | prepend: site.baseurl }}" alt="Using" class="">Using</a></li>
-        <li class="" style="border-top: 1px solid #aaa"><a href="{{ site.github.repository_url }}">GitHub</a></li> 
+        <li class=""><a href="{{ "/" | absolute_url }}" alt="Home">Home</a></li>
+        <li class=""><a href="{{ "/examples/" | prepend: site.baseurl }}" alt="Examples" class="">Examples</a></li>
+        <li class="" style="border-top: 1px solid #aaa"><a href="{{ site.github.repository_url }}">GitHub</a></li>  
       </ul>
 
     </div>   

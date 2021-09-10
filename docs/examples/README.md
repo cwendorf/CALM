@@ -1,4 +1,4 @@
-## Examples for CALM
+## Examples for `CALM`
 
 ### Overview
 

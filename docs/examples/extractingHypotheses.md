@@ -27,7 +27,7 @@ calm.decode(ex_dummy)
 ## HYPOTH 3       0       1      -1
 ```
 
-The intercept is equivalent to the mean of the last group. Parameters represent the difference between each group and the last group. 
+The intercept is equivalent to the mean of the last group. Remaining parameters represent the difference between each group and the last group. 
 
 #### Example: Effect Coding
 
@@ -49,7 +49,7 @@ calm.decode(ex_effect)
 ## HYPOTH 3   -0.33    0.67   -0.33
 ```
 
-The intercept is equivalent to the mean of the group means. Parameter represent the difference between each group and the grand mean. The last group is not compared. 
+The intercept is equivalent to the mean of the group means. Remaining parameters represent the difference between each group and the grand mean. The last group is not compared. 
 
 #### Example: Repeated Coding
 
@@ -71,7 +71,7 @@ calm.decode(ex_repeated)
 ## HYPOTH 3       0      -1       1
 ```
 
-The intercept is equivalent to the mean of the first group. Parameter represent the difference between each group and the previous group. 
+The intercept is equivalent to the mean of the first group. Remaining parameters represent the difference between each group and the previous group. 
 
 ### Extracting from R Base Contrast Codes
 
@@ -90,7 +90,7 @@ calm.decode(ex_contr.treatment)
 ## 3   -1 0 1
 ```
 
-The intercept is equivalent to the mean of the first group. Parameter represent the difference between each group and the first group. 
+The intercept is equivalent to the mean of the first group. Remaining parameters represent the difference between each group and the first group. 
 
 #### Example: contr.SAS
 
@@ -107,7 +107,7 @@ calm.decode(ex_contr.SAS)
 ## 2   0 1 -1
 ```
 
-The intercept is equivalent to the mean of the last group. Parameter represent the difference between each group and the last group.
+The intercept is equivalent to the mean of the last group. Remaining parameters represent the difference between each group and the last group.
 
 #### Example: contr.sum
 
@@ -124,7 +124,7 @@ calm.decode(ex_contr.sum)
 ##     -0.33  0.67 -0.33
 ```
 
-The intercept is equivalent to the mean of the group means. Parameters represent the difference between each group and the grand mean. The last group is not compared.
+The intercept is equivalent to the mean of the group means. Remaining parameters represent the difference between each group and the grand mean. The last group is not compared.
 
 #### Example: contr.helmert
 
@@ -141,7 +141,7 @@ calm.decode(ex_contr.helmert)
 ##     -0.17 -0.17 0.33
 ```
 
-The intercept is equivalent to the mean of the group means. Parameters represent the difference between each group and the mean of the subsequent groups. 
+The intercept is equivalent to the mean of the group means. Remaining parameters represent the difference between each group and the mean of the subsequent groups. 
 
 #### Example: contr.poly
 
@@ -158,7 +158,7 @@ calm.decode(ex_contr.poly)
 ## .Q     0.41   -0.82    0.41
 ```
 
-The intercept is equivalent to the mean of the group means. Parameters represent polynomial trends (linear, quadratic, etc.).
+The intercept is equivalent to the mean of the group means. Remaining parameters represent polynomial trends (linear, quadratic, etc.).
 
 ### References
 

@@ -30,7 +30,7 @@ library(CALM)
 
 ### Overview
 
-Following Wendorf (2004), `CALM` can take existing coding patterns and decode them to determine the hypotheses being tested. In the examples below, the matrix input shows the coding pattern (columns represent coded vectors, rows represent the groups being represented). The obtained output shows the linear contrasts hypotheses being represented (the rows represent the weights for the contrast, the columns represent the groups being compared).
+Following Wendorf (2004), **CALM** can take existing coding patterns and decode them to determine the hypotheses being tested. In the examples below, the matrix input shows the coding pattern (columns represent coded vectors, rows represent the groups being represented). The obtained output shows the linear contrasts hypotheses being represented (the rows represent the weights for the contrast, the columns represent the groups being compared).
 
 ### Extracting from Regression Codes
 

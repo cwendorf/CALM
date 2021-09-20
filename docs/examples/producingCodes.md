@@ -3,7 +3,7 @@
 
 ### Overview
 
-Following Wendorf (2004), `CALM` can take a set of linear contrasts to be tested and encode them into coding schemes. In the examples below, the input shows linear contrast weights (rows represented the weights for the groups, columns represent the different groups). The obtained output provides the coding pattern (where columns represent vector codes, rows represent the groups).
+Following Wendorf (2004), **CALM** can take a set of linear contrasts to be tested and encode them into coding schemes. In the examples below, the input shows linear contrast weights (rows represented the weights for the groups, columns represent the different groups). The obtained output provides the coding pattern (where columns represent vector codes, rows represent the groups).
 
 ### Common Contrast Codes
 

@@ -1,3 +1,5 @@
 ^README.md
 ^source-CALM.R
 docs/
+^.*\.Rproj$
+^\.Rproj\.user$

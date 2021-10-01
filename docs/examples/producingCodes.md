@@ -1,3 +1,25 @@
+---
+title: "Contrast Algorithms for Linear Models"
+author: "Craig A. Wendorf"
+date: "2021-10-01"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    collapse: true
+    theme: cerulean
+    highlight: default
+    keep_md: TRUE
+vignette: >
+  %\VignetteIndexEntry{Producing Codes from Hypotheses}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+
 
 ## Producing Contrast Codes
 
@@ -9,7 +31,8 @@ Following Wendorf (2004), **CALM** can take a set of linear contrasts to be test
 
 #### Example: Treatment (First) Contrasts
 
-The intercept is equivalent to the mean of the first group. Remaining parameters represent the difference between each group and the first group. 
+The intercept is equivalent to mean of the first group. Parameters represent the difference between each group and the first group. 
+
 
 ```r
 M1 <- c(1,0,0)
@@ -28,7 +51,8 @@ calm.encode(ex_treatment.first)
 
 #### Example: Treatment (Last) Contrasts
 
-The intercept is equivalent to the mean of the last group. Remaining parameters represent the difference between each group and the last group. 
+The intercept is equivalent to mean of the last group. Parameters represent the difference between each group and the last group. 
+
 
 ```r
 M3 <- c(0,0,1)
@@ -47,7 +71,8 @@ calm.encode(ex_treatment.last)
 
 #### Example: Control (First) Contrasts
 
-The intercept is equivalent to the mean of the group means. Remaining parameters represent the difference between each group and the first group. 
+The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the first group. 
+
 
 ```r
 GM <- c(1/3,1/3,1/3)
@@ -58,15 +83,16 @@ calm.encode(ex_control.first)
 ```
 
 ```
-##         GM    H1    H2
-## GROUP 1  1 -0.33 -0.33
-## GROUP 2  1  0.67 -0.33
-## GROUP 3  1 -0.33  0.67
+##         GM      H1      H2
+## GROUP 1  1 -0.3333 -0.3333
+## GROUP 2  1  0.6667 -0.3333
+## GROUP 3  1 -0.3333  0.6667
 ```
 
 #### Example: Control (Last) Contrasts
 
-The intercept is equivalent to the mean of the group means. Remaining parameters represent the difference between each group and the last group. 
+The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the last group. 
+
 
 ```r
 GM <- c(1/3,1/3,1/3)
@@ -77,15 +103,16 @@ calm.encode(ex_control.last)
 ```
 
 ```
-##         GM    H1    H2
-## GROUP 1  1  0.67 -0.33
-## GROUP 2  1 -0.33  0.67
-## GROUP 3  1 -0.33 -0.33
+##         GM      H1      H2
+## GROUP 1  1  0.6667 -0.3333
+## GROUP 2  1 -0.3333  0.6667
+## GROUP 3  1 -0.3333 -0.3333
 ```
 
 #### Example: Deviation (First) Contrasts
 
-The intercept is equivalent to the mean of the group means. Remaining parameters represent the difference between each group and the grand mean. The first group is not compared. 
+The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the grand mean. The first group is not compared. 
+
 
 ```r
 GM <- c(1/3,1/3,1/3)
@@ -104,7 +131,7 @@ calm.encode(ex_deviation.first)
 
 #### Example: Deviation (Last) Contrasts
 
-The intercept is equivalent to the mean of the group means. Remaining parameters represent the difference between each group and the grand mean. The last group is not compared. 
+The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the grand mean. The last group is not compared. 
 
 
 ```r
@@ -124,7 +151,8 @@ calm.encode(ex_deviation.last)
 
 #### Example: Helmert (Forward) Contrasts
 
-The intercept is equivalent to the mean of the group means. Remaining parameters represent the difference between each group and the mean of the subsequent groups. 
+The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the mean of the subsequent groups. 
+
 
 ```r
 GM <- c(1/3,1/3,1/3)
@@ -135,15 +163,16 @@ calm.encode(ex_helmert.forward)
 ```
 
 ```
-##         GM    H1   H2
-## GROUP 1  1  0.67  0.0
-## GROUP 2  1 -0.33  0.5
-## GROUP 3  1 -0.33 -0.5
+##         GM      H1   H2
+## GROUP 1  1  0.6667  0.0
+## GROUP 2  1 -0.3333  0.5
+## GROUP 3  1 -0.3333 -0.5
 ```
 
 #### Example: Helmert (Reverse) Contrasts
 
-The intercept is equivalent to the mean of the group means. Remaining parameters represent the difference between each group and the mean of the previous groups. 
+The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the mean of the previous groups. 
+
 
 ```r
 GM <- c(1/3,1/3,1/3)
@@ -154,15 +183,16 @@ calm.encode(ex_helmert.reverse)
 ```
 
 ```
-##         GM   H1    H2
-## GROUP 1  1 -0.5 -0.33
-## GROUP 2  1  0.5 -0.33
-## GROUP 3  1  0.0  0.67
+##         GM   H1      H2
+## GROUP 1  1 -0.5 -0.3333
+## GROUP 2  1  0.5 -0.3333
+## GROUP 3  1  0.0  0.6667
 ```
 
 #### Example: Repeated (Forward) Contrasts
 
-The intercept is equivalent to the mean of the first group. Remaining parameters represent the difference between each group and the subsequent group. 
+The intercept is equivalent to mean of the first group. Parameters represent the difference between each group and the subsequent group. 
+
 
 ```r
 M1 <- c(1,0,0)
@@ -181,7 +211,8 @@ calm.encode(ex_repeated.forward)
 
 #### Example: Repeated (Reverse) Contrasts
 
-The intercept is equivalent to the mean of the first group. Remaining parameters represent the difference between each group and the previous group. 
+The intercept is equivalent to mean of the first group. Parameters represent the difference between each group and the previous group. 
+
 
 ```r
 M1 <- c(1,0,0)
@@ -200,7 +231,8 @@ calm.encode(ex_repeated.reverse)
 
 #### Example: Difference (Forward) Contrasts
 
-The intercept is equivalent to the mean of the group means. Remaining parameters represent the difference between each group and the subsequent group. 
+The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the subsequent group. 
+
 
 ```r
 GM <- c(1/3,1/3,1/3)
@@ -211,15 +243,16 @@ calm.encode(ex_difference.forward)
 ```
 
 ```
-##         GM    H1    H2
-## GROUP 1  1  0.67  0.33
-## GROUP 2  1 -0.33  0.33
-## GROUP 3  1 -0.33 -0.67
+##         GM      H1      H2
+## GROUP 1  1  0.6667  0.3333
+## GROUP 2  1 -0.3333  0.3333
+## GROUP 3  1 -0.3333 -0.6667
 ```
 
 #### Example: Difference (Reverse) Contrasts
 
-The intercept is equivalent to the mean of the group means. Remaining parameters represent the difference between each group and the previous group. 
+The intercept is equivalent to mean of the group means. Parameters represent the difference between each group and the previous group. 
+
 
 ```r
 GM <- c(1/3,1/3,1/3)
@@ -230,17 +263,18 @@ calm.encode(ex_difference.reverse)
 ```
 
 ```
-##         GM    H1    H2
-## GROUP 1  1 -0.67 -0.33
-## GROUP 2  1  0.33 -0.33
-## GROUP 3  1  0.33  0.67
+##         GM      H1      H2
+## GROUP 1  1 -0.6667 -0.3333
+## GROUP 2  1  0.3333 -0.3333
+## GROUP 3  1  0.3333  0.6667
 ```
 
 ### Custom Contrast Codes
 
 #### Example: Orthogonal Contrasts
 
-In this custom example, the intercept is equivalent to the mean of the group means. The first parameter represents the difference between the first group and mean of the subsequent groups. The second parameter represents the difference between the second and third groups.
+In this custom example, the intercept is equivalent to mean of the group means. The first parameter represents the difference between the first group and mean of the subsequent groups. The second parameter represents the difference between the second and third groups.
+
 
 ```r
 GM <- c(1/3,1/3,1/3)
@@ -251,15 +285,16 @@ calm.encode(ex_custom.orthogonal)
 ```
 
 ```
-##         GM    H1   H2
-## GROUP 1  1  0.67  0.0
-## GROUP 2  1 -0.33  0.5
-## GROUP 3  1 -0.33 -0.5
+##         GM      H1   H2
+## GROUP 1  1  0.6667  0.0
+## GROUP 2  1 -0.3333  0.5
+## GROUP 3  1 -0.3333 -0.5
 ```
 
 #### Example: Nonorthogonal Contrasts
 
-In this custom example, the intercept is equivalent to the mean of the first group. The first parameter represents the difference between the first group and mean of the subsequent groups. The second parameter represents the difference between the first and second groups.
+In this custom example, the intercept is equivalent to mean of the first group. The first parameter represents the difference between the first group and mean of the subsequent groups. The second parameter represents the difference between the first and second groups.
+
 
 ```r
 GM <- c(1,0,0)

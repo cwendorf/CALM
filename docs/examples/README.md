@@ -5,7 +5,7 @@
 **CALM** can take existing coding patterns and decode them to determine the hypotheses being tested. The package takes matrix input of the coding pattern (columns represent coded vectors, rows represent the groups being represented) and outputs the linear contrasts hypotheses being represented (the rows represent the weights for the contrast, the columns represent the groups being compared).
 
 - [*extractingRegressionCodes*](./extractingRegressionCodes.md) - Examples of extracting from traditional regression codes
-- [*extractingBaseCodes*](.extractingBaseCodes.md) - Examples of extracting from R Base contrast codes
+- [*extractingBaseCodes*](./extractingBaseCodes.md) - Examples of extracting from R Base contrast codes
 
 ### Producing Contrast Codes
 

@@ -1,7 +1,7 @@
 ---
 title: "Contrast Algorithms for Linear Models"
 author: "Craig A. Wendorf"
-date: "2021-10-09"
+date: "2021-12-09"
 output:
   html_document:
     toc: true

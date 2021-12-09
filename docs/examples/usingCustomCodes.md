@@ -1,7 +1,7 @@
 ---
 title: "Contrast Algorithms for Linear Models"
 author: "Craig A. Wendorf"
-date: "2021-10-09"
+date: "2021-12-09"
 output:
   html_document:
     toc: true
@@ -69,7 +69,7 @@ mtcars
 ```
 
 ```r
-mtcars$cyl = factor(mtcars$cyl) 
+mtcars$cyl <- factor(mtcars$cyl) 
 tapply(mtcars$mpg,mtcars$cyl,mean)
 ```
 
@@ -86,7 +86,7 @@ GM <- c(1/3,1/3,1/3)
 H1 <- c(1,-1/2,-1/2)
 H2 <- c(0,1,-1)
 ex_custom.orthogonal <- rbind(GM,H1,H2)
-custom.orthogonal = calm.encode(ex_custom.orthogonal)
+custom.orthogonal <- calm.encode(ex_custom.orthogonal)
 custom.orthogonal
 ```
 
@@ -120,7 +120,7 @@ GM <- c(1,0,0)
 H1 <- c(1,-1/2,-1/2)
 H2 <- c(1,-1,0)
 ex_custom.nonorthogonal <- rbind(GM,H1,H2)
-custom.nonorthogonal = calm.encode(ex_custom.nonorthogonal)
+custom.nonorthogonal <- calm.encode(ex_custom.nonorthogonal)
 custom.nonorthogonal
 ```
 
@@ -133,7 +133,7 @@ custom.nonorthogonal
 
 
 ```r
-contrasts(mtcars$cyl) = custom.nonorthogonal[,-1]
+contrasts(mtcars$cyl) <- custom.nonorthogonal[,-1]
 summary(lm(mpg~cyl, mtcars))$coefficients
 ```
 

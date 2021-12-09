@@ -1,7 +1,7 @@
 ---
 title: "Contrast Algorithms for Linear Models"
 author: "Craig A. Wendorf"
-date: "2021-10-09"
+date: "2021-12-09"
 output:
   html_document:
     toc: true
@@ -23,13 +23,24 @@ vignette: >
 
 ## Extracting from R Base Contrast Codes
 
-In the examples below, the matrix input shows the coding pattern (columns represent coded vectors, rows represent the groups being represented). The obtained output shows the linear contrasts hypotheses being represented (the rows represent the weights for the contrast, the columns represent the groups being compared).
+In the examples below, the matrix input shows the coding pattern (columns represent coded vectors, rows represent the groups being compared). The obtained output shows the linear contrast hypotheses (the rows represent the weights for the contrast, the columns represent the groups being compared).
 
 ### contr.treatment
 
 
 ```r
-ex_contr.treatment = cbind(Int=1,contr.treatment(3))
+ex_contr.treatment <- cbind(Int=1,contr.treatment(3))
+ex_contr.treatment
+```
+
+```
+##   Int 2 3
+## 1   1 0 0
+## 2   1 1 0
+## 3   1 0 1
+```
+
+```r
 calm.decode(ex_contr.treatment)
 ```
 
@@ -46,7 +57,18 @@ The intercept is equivalent to the mean of the first group. Parameter represent 
 
 
 ```r
-ex_contr.SAS = cbind(Int=1,contr.SAS(3))
+ex_contr.SAS <- cbind(Int=1,contr.SAS(3))
+ex_contr.SAS
+```
+
+```
+##   Int 1 2
+## 1   1 1 0
+## 2   1 0 1
+## 3   1 0 0
+```
+
+```r
 calm.decode(ex_contr.SAS)
 ```
 
@@ -63,7 +85,18 @@ The intercept is equivalent to the mean of the last group. Parameter represent t
 
 
 ```r
-ex_contr.sum = cbind(Int=1,contr.sum(3))
+ex_contr.sum <- cbind(Int=1,contr.sum(3))
+ex_contr.sum
+```
+
+```
+##   Int      
+## 1   1  1  0
+## 2   1  0  1
+## 3   1 -1 -1
+```
+
+```r
 calm.decode(ex_contr.sum)
 ```
 
@@ -80,7 +113,18 @@ The intercept is equivalent to the mean of the group means. Parameters represent
 
 
 ```r
-ex_contr.helmert = cbind(Int=1,contr.helmert(3))
+ex_contr.helmert <- cbind(Int=1,contr.helmert(3))
+ex_contr.helmert
+```
+
+```
+##   Int      
+## 1   1 -1 -1
+## 2   1  1 -1
+## 3   1  0  2
+```
+
+```r
 calm.decode(ex_contr.helmert)
 ```
 
@@ -97,7 +141,18 @@ The intercept is equivalent to the mean of the group means. Parameters represent
 
 
 ```r
-ex_contr.poly = cbind(Int=1,contr.poly(3))
+ex_contr.poly <- cbind(Int=1,contr.poly(3))
+ex_contr.poly
+```
+
+```
+##      Int            .L         .Q
+## [1,]   1 -7.071068e-01  0.4082483
+## [2,]   1 -7.850462e-17 -0.8164966
+## [3,]   1  7.071068e-01  0.4082483
+```
+
+```r
 calm.decode(ex_contr.poly)
 ```
 

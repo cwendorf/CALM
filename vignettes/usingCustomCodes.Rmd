@@ -34,7 +34,7 @@ For the sake of example, this site uses the following data. For reference, the g
 
 ```{r}
 mtcars
-mtcars$cyl = factor(mtcars$cyl) 
+mtcars$cyl <- factor(mtcars$cyl) 
 tapply(mtcars$mpg,mtcars$cyl,mean)
 ```
 
@@ -45,7 +45,7 @@ GM <- c(1/3,1/3,1/3)
 H1 <- c(1,-1/2,-1/2)
 H2 <- c(0,1,-1)
 ex_custom.orthogonal <- rbind(GM,H1,H2)
-custom.orthogonal = calm.encode(ex_custom.orthogonal)
+custom.orthogonal <- calm.encode(ex_custom.orthogonal)
 custom.orthogonal
 ```
 
@@ -63,12 +63,12 @@ GM <- c(1,0,0)
 H1 <- c(1,-1/2,-1/2)
 H2 <- c(1,-1,0)
 ex_custom.nonorthogonal <- rbind(GM,H1,H2)
-custom.nonorthogonal = calm.encode(ex_custom.nonorthogonal)
+custom.nonorthogonal <- calm.encode(ex_custom.nonorthogonal)
 custom.nonorthogonal
 ```
 
 ```{r}
-contrasts(mtcars$cyl) = custom.nonorthogonal[,-1]
+contrasts(mtcars$cyl) <- custom.nonorthogonal[,-1]
 summary(lm(mpg~cyl, mtcars))$coefficients
 ```
 

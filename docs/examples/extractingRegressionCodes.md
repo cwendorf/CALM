@@ -1,7 +1,7 @@
 ---
 title: "Contrast Algorithms for Linear Models"
 author: "Craig A. Wendorf"
-date: "2021-10-09"
+date: "2021-12-09"
 output:
   html_document:
     toc: true
@@ -23,13 +23,13 @@ vignette: >
 
 ## Extracting from Regression Codes
 
-In the examples below, the matrix input shows the coding pattern (columns represent coded vectors, rows represent the groups being represented). The obtained output shows the linear contrasts hypotheses being represented (the rows represent the weights for the contrast, the columns represent the groups being compared).
+In the examples below, the matrix input shows the coding pattern (columns represent coded vectors, rows represent the groups being compared). The obtained output shows the linear contrast hypotheses (the rows represent the weights for the contrast, the columns represent the groups being compared).
 
 ### Dummy Coding
 
 
 ```r
-ex_dummy = matrix(c(
+ex_dummy <- matrix(c(
     1,1,0,
     1,0,1,
     1,0,0),
@@ -51,7 +51,7 @@ The intercept is equivalent to the mean of the last group. Parameters represent 
 
 
 ```r
-ex_effect = matrix(c(
+ex_effect <- matrix(c(
     1,1,0,
     1,0,1,
     1,-1,-1),
@@ -73,7 +73,7 @@ The intercept is equivalent to the mean of the group means. Parameter represent 
 
 
 ```r
-ex_repeated = matrix(c(
+ex_repeated <- matrix(c(
     1,0,0,
     1,1,0,
     1,1,1),

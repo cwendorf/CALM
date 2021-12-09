@@ -28,12 +28,13 @@ library(CALM)
 
 ## Extracting from R Base Contrast Codes
 
-In the examples below, the matrix input shows the coding pattern (columns represent coded vectors, rows represent the groups being represented). The obtained output shows the linear contrasts hypotheses being represented (the rows represent the weights for the contrast, the columns represent the groups being compared).
+In the examples below, the matrix input shows the coding pattern (columns represent coded vectors, rows represent the groups being compared). The obtained output shows the linear contrast hypotheses (the rows represent the weights for the contrast, the columns represent the groups being compared).
 
 ### contr.treatment
 
 ```{r}
-ex_contr.treatment = cbind(Int=1,contr.treatment(3))
+ex_contr.treatment <- cbind(Int=1,contr.treatment(3))
+ex_contr.treatment
 calm.decode(ex_contr.treatment)
 ```
 
@@ -42,7 +43,8 @@ The intercept is equivalent to the mean of the first group. Parameter represent 
 ### contr.SAS
 
 ```{r}
-ex_contr.SAS = cbind(Int=1,contr.SAS(3))
+ex_contr.SAS <- cbind(Int=1,contr.SAS(3))
+ex_contr.SAS
 calm.decode(ex_contr.SAS)
 ```
 
@@ -51,7 +53,8 @@ The intercept is equivalent to the mean of the last group. Parameter represent t
 ### contr.sum
 
 ```{r}
-ex_contr.sum = cbind(Int=1,contr.sum(3))
+ex_contr.sum <- cbind(Int=1,contr.sum(3))
+ex_contr.sum
 calm.decode(ex_contr.sum)
 ```
 
@@ -60,7 +63,8 @@ The intercept is equivalent to the mean of the group means. Parameters represent
 ### contr.helmert
 
 ```{r}
-ex_contr.helmert = cbind(Int=1,contr.helmert(3))
+ex_contr.helmert <- cbind(Int=1,contr.helmert(3))
+ex_contr.helmert
 calm.decode(ex_contr.helmert)
 ```
 
@@ -69,7 +73,8 @@ The intercept is equivalent to the mean of the group means. Parameters represent
 ### contr.poly
 
 ```{r}
-ex_contr.poly = cbind(Int=1,contr.poly(3))
+ex_contr.poly <- cbind(Int=1,contr.poly(3))
+ex_contr.poly
 calm.decode(ex_contr.poly)
 ```
 

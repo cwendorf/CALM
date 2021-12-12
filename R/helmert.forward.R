@@ -11,7 +11,7 @@
 helmert.forward <- function(n, intercept=FALSE, contrasts=TRUE, sparse=FALSE) {
   if (is.numeric(n) && length(n) == 1L) {
     if (n > 1L)
-      levels <- as.character(seq_len(n))
+      levels <- .zf(seq_len(n))
     else stop("not enough degrees of freedom to define contrasts")
   }
   else {

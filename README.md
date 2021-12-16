@@ -31,7 +31,7 @@ source("http://raw.githubusercontent.com/cwendorf/CALM/main/source-CALM.R")
 
 ### Usage
 
-Basic documentation and examples are available:  
+Basic documentation and tutorials are available:  
 [https://cwendorf.github.io/CALM/](https://cwendorf.github.io/CALM/)
 
 - Extracting hypotheses from existing coding patterns

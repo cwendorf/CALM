@@ -30,10 +30,15 @@ library(CALM)
 
 ### The Data
 
-For the sake of example, this site uses the following data. For reference, the group means are displayed.
+For the sake of example, this site uses the following data. 
 
 ```{r}
 mtcars
+```
+
+For reference, the group means are displayed.
+
+```{r}
 mtcars$cyl <- factor(mtcars$cyl) 
 tapply(mtcars$mpg,mtcars$cyl,mean)
 ```

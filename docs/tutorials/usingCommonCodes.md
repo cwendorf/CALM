@@ -25,8 +25,7 @@ vignette: >
 
 ### The Data
 
-For the sake of example, this site uses the following data. For reference, the group means are displayed.
-
+For the sake of example, this site uses the following data. 
 
 ```r
 mtcars
@@ -67,6 +66,8 @@ mtcars
 ## Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
 ## Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2
 ```
+
+For reference, the group means are displayed.
 
 ```r
 mtcars$cyl <- factor(mtcars$cyl) 

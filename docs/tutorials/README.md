@@ -1,4 +1,4 @@
-## Examples for CALM
+## Tutorials for CALM
 
 ### Extracting Hypotheses from Codes
 

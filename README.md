@@ -1,10 +1,6 @@
-<a href="https://cwendorf.github.io/CALM">
-<img src="logo.png" height="60px;" align="left;">
-</a>
+# CALM
 
-# Contrast Algorithms for Linear Models
-
-## An R Package to Create and Interpret Contrast Codes
+## Contrast Algorithms for Linear Models
 
 [![minimal R version](https://img.shields.io/badge/R%3E%3D-3.6.2-6666ff.svg)](https://cran.r-project.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
@@ -40,7 +36,7 @@ Basic documentation and tutorials are available:
 
 ### Citation
 
-Wendorf, C.A. (2021). *CALM: Contrast Algorithms for Linear Models* [R Package]. [https://cwendorf.github.io/CALM/](https://cwendorf.github.io/CALM/)
+Wendorf, C.A. (2021). *CALM: Contrast Algorithms for Linear Models* [R Package]. [https://github.com/cwendorf/CALM/](https://github.com/cwendorf/CALM/)
 
 ### Contact Me
 

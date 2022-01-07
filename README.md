@@ -28,7 +28,7 @@ source("http://raw.githubusercontent.com/cwendorf/CALM/main/source-CALM.R")
 ### Usage
 
 Basic documentation and tutorials are available:  
-[https://cwendorf.github.io/CALM/](https://cwendorf.github.io/CALM/)
+[https://github.com/cwendorf/CALM/tree/main/docs](https://github.com/cwendorf/CALM/tree/main/docs)
 
 - Extracting hypotheses from existing coding patterns
 - Producing codes from contrast hypotheses

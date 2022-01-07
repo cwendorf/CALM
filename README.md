@@ -34,12 +34,12 @@ Basic documentation and tutorials are available:
 - Producing codes from contrast hypotheses
 - Using custom and predefined codes in linear models
 
-### Citation
-
-Wendorf, C.A. (2021). *CALM: Contrast Algorithms for Linear Models* [R Package]. [https://github.com/cwendorf/CALM/](https://github.com/cwendorf/CALM/)
-
 ### Contact Me
 
 - GitHub Issues: [https://github.com/cwendorf/CALM/issues](https://github.com/cwendorf/CALM/issues) 
 - Author Email: [cwendorf@uwsp.edu](mailto:cwendorf@uwsp.edu)
 - Author Homepage: [https://cwendorf.github.io](https://cwendorf.github.io)
+
+### Citation
+
+Wendorf, C.A. (2021). *CALM: Contrast Algorithms for Linear Models* [R Package]. [https://github.com/cwendorf/CALM](https://github.com/cwendorf/CALM)

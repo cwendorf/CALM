@@ -1,25 +1,3 @@
----
-title: "Contrast Algorithms for Linear Models"
-author: "Craig A. Wendorf"
-date: "2021-12-09"
-output:
-  html_document:
-    toc: true
-    toc_float: true
-    toc_depth: 4
-    collapse: true
-    theme: cerulean
-    highlight: default
-    keep_md: TRUE
-vignette: >
-  %\VignetteIndexEntry{Extracting from R Base Contrast Codes}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
----
-
-
-
-
 
 ## Extracting from R Base Contrast Codes
 

@@ -1,4 +1,6 @@
-# CALM
+<a href="https://github.com/cwendorf/CALM/">
+<img src="./docs/logo.png" height="60px;" align="left;" style="display: none; margin: 0px; padding: 0px;">
+</a>
 
 ## Contrast Algorithms for Linear Models
 

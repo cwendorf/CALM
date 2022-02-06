@@ -1,4 +1,4 @@
-# Contrast Algoritms for Linear Models
+# Contrast Algorithms for Linear Models
 
 source("http://raw.githubusercontent.com/cwendorf/CALM/main/source-CALM.R")
 

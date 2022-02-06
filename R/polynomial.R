@@ -1,11 +1,11 @@
 # Contrast Algorithms for Linear Models
 ## Contrast: Polynomial
 
+### Contrast: Polynomial
 ### R Equivalent: contr.poly
 ### SPSS Equivalent: polynomial
 ### MR Equivalent: polynomial
 ### codingMatrices Equivalent: poly
-
 ### Original Code: R Base
 
 polynomial <- function (n, scores = 1:n, intercept=FALSE, contrasts=TRUE, sparse=FALSE) {

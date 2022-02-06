@@ -1,5 +1,5 @@
 # Contrast Algorithms for Linear Models
-## Helper Functions
+## Utility Functions
 
 .Diag <- function(nms, sparse) {
     n <- as.integer(length(nms))

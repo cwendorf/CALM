@@ -79,7 +79,7 @@ custom.orthogonal
 
 ```r
 contrasts(mtcars$cyl) = custom.orthogonal[,-1]
-summary(lm(mpg~cyl, mtcars))$coefficients
+summary(lm(mpg~cyl,data=mtcars))$coefficients
 ```
 
 ```
@@ -113,7 +113,7 @@ custom.nonorthogonal
 
 ```r
 contrasts(mtcars$cyl) <- custom.nonorthogonal[,-1]
-summary(lm(mpg~cyl, mtcars))$coefficients
+summary(lm(mpg~cyl,data=mtcars))$coefficients
 ```
 
 ```

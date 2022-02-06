@@ -20,7 +20,7 @@ custom.orthogonal <- calm.encode(ex_custom.orthogonal)
 custom.orthogonal
 
 contrasts(mtcars$cyl) = custom.orthogonal[,-1]
-summary(lm(mpg~cyl, mtcars))$coefficients
+summary(lm(mpg~cyl,data=mtcars))$coefficients
 
 ### Nonorthogonal Contrasts
 
@@ -32,4 +32,4 @@ custom.nonorthogonal <- calm.encode(ex_custom.nonorthogonal)
 custom.nonorthogonal
 
 contrasts(mtcars$cyl) <- custom.nonorthogonal[,-1]
-summary(lm(mpg~cyl, mtcars))$coefficients
+summary(lm(mpg~cyl,data=mtcars))$coefficients

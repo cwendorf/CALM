@@ -37,6 +37,7 @@ mtcars
 mtcars$cyl <- factor(mtcars$cyl) 
 tapply(mtcars$mpg,mtcars$cyl,mean)
 ```
+
 ### Treatment (First) Contrasts
 
 ```{r}

@@ -29,7 +29,7 @@ source("http://raw.githubusercontent.com/cwendorf/CALM/main/source-CALM.R")
 
 ### Usage
 
-The available [Tutorials for CALM](./docs/README.md) provide basic documentation and examples of:
+The [Tutorials for CALM](./docs/README.md) provide basic documentation and examples of:
 
 - Extracting hypotheses from existing coding patterns
 - Producing codes from contrast hypotheses

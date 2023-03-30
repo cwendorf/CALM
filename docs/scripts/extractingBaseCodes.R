@@ -2,7 +2,7 @@
 
 source("http://raw.githubusercontent.com/cwendorf/CALM/main/source-CALM.R")
 
-## Extracting from R Base Contrast Codes
+## Extracting Hypotheses from R Base Contrast Codes
 
 ### contr.treatment
 

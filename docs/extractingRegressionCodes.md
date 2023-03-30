@@ -1,10 +1,11 @@
 
-## Extracting from Regression Codes
+## Extracting Hypotheses from Regression Codes
 
-In the examples below, the matrix input shows the coding pattern (columns represent coded vectors, rows represent the groups being compared). The obtained output shows the linear contrast hypotheses (the rows represent the weights for the contrast, the columns represent the groups being compared).
+**CALM** can take existing coding patterns and decode them to determine the hypotheses being tested. The examples below use traditional and commonly-taught regression codes (dummy codes, effect codes, etc.) and extract the hypotheses implied by each code vector.
+
+The package takes matrix input of the coding pattern (columns represent coded vectors, rows represent the groups being represented) and outputs the linear contrasts hypotheses being represented (the rows represent the weights for the contrast, the columns represent the groups being compared).
 
 ### Dummy Coding
-
 
 ```r
 ex_dummy <- matrix(c(
@@ -27,7 +28,6 @@ The intercept is equivalent to the mean of the last group. Parameters represent 
 
 ### Effect Coding
 
-
 ```r
 ex_effect <- matrix(c(
     1,1,0,
@@ -48,7 +48,6 @@ calm.decode(ex_effect)
 The intercept is equivalent to the mean of the group means. Parameter represent the difference between each group and the grand mean. The last group is not compared. 
 
 ### Repeated Coding
-
 
 ```r
 ex_repeated <- matrix(c(

@@ -1,7 +1,9 @@
 
-## Extracting from R Base Contrast Codes
+## Extracting Hypotheses from R Base Contrast Codes
 
-In the examples below, the matrix input shows the coding pattern (columns represent coded vectors, rows represent the groups being compared). The obtained output shows the linear contrast hypotheses (the rows represent the weights for the contrast, the columns represent the groups being compared).
+**CALM** can take existing coding patterns and decode them to determine the hypotheses being tested. The examples below use the built-in codes in R (treatment, SAS, sum, helmert, and poly) and extract the hypotheses implied by each code vector.
+
+The package takes matrix input of the coding pattern (columns represent coded vectors, rows represent the groups being represented) and outputs the linear contrasts hypotheses being represented (the rows represent the weights for the contrast, the columns represent the groups being compared).
 
 ### contr.treatment
 

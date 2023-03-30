@@ -1,7 +1,9 @@
 
 ## Producing Custom Contrast Codes
 
-In the examples below, the input shows linear contrast weights (rows represented the weights for the groups, columns represent the different groups). The obtained output provides the coding pattern (where columns represent vector codes, rows represent the groups).
+**CALM** can take a set of linear contrasts to be tested and encode them into coding schemes. The examples below take custom contrasts (both orthogonal and nonorthogonal) and produce the coding scheme associated with it.
+
+The package takes linear contrast weights (rows represented the weights for the groups, columns represent the different groups) and provides the coding pattern (where columns represent vector codes, rows represent the groups).
 
 ### Orthogonal Contrasts
 

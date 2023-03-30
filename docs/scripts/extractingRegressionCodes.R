@@ -2,7 +2,7 @@
 
 source("http://raw.githubusercontent.com/cwendorf/CALM/main/source-CALM.R")
 
-## Extracting from Regression Codes
+## Extracting Hypotheses from Regression Codes
 
 ### Dummy Coding
 

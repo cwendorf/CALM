@@ -1,5 +1,7 @@
 
-## Using Custom Contrast Codes
+## Using Custom Contrast Codes in Linear Models
+
+**CALM** also makes it possible to develop custom codes to test specific hypotheses. The examples below use custom codes in the context of a General Linear Model to test the associated hypotheses.
 
 ### The Data
 

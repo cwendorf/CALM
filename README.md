@@ -30,7 +30,7 @@ The [Tutorials for CALM](./docs/README.md) provide basic documentation and examp
 
 - Extracting hypotheses from existing coding patterns
 - Producing codes from contrast hypotheses
-- Using custom and predefined codes in linear models
+- Using predefined and custom codes in linear models
 
 ### Contact Me
 

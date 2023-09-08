@@ -23,12 +23,17 @@ knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,wa
 ```
 
 ```{r,include=FALSE}
+if(!require(CALM)) {
+if(!require(remotes)) install.packages('remotes')
+remotes::install_github("cwendorf/CALM")}
 library(CALM)
 ```
 
-## Extracting from Regression Codes
+## Extracting Hypotheses from Regression Codes
 
-In the examples below, the matrix input shows the coding pattern (columns represent coded vectors, rows represent the groups being compared). The obtained output shows the linear contrast hypotheses (the rows represent the weights for the contrast, the columns represent the groups being compared).
+**CALM** can take existing coding patterns and decode them to determine the hypotheses being tested. The examples below use traditional and commonly-taught regression codes (dummy codes, effect codes, etc.) and extract the hypotheses implied by each code vector.
+
+The package takes matrix input of the coding pattern (columns represent coded vectors, rows represent the groups being represented) and outputs the linear contrasts hypotheses being represented (the rows represent the weights for the contrast, the columns represent the groups being compared).
 
 ### Dummy Coding
 

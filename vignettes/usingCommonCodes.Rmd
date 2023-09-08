@@ -23,10 +23,15 @@ knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,wa
 ```
 
 ```{r,include=FALSE}
+if(!require(CALM)) {
+if(!require(remotes)) install.packages('remotes')
+remotes::install_github("cwendorf/CALM")}
 library(CALM)
 ```
 
 ## Using Common Contrast Codes
+
+**CALM** includes a complete set of commonly used coding schemes that can be used directly in linear model specifications. The examples below use the built-in codes in the context of a General Linear Model to test the associated hypotheses.
 
 ### The Data
 

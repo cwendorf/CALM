@@ -12,7 +12,7 @@ output:
     highlight: default
     keep_md: TRUE
 vignette: >
-  %\VignetteIndexEntry{Extracting Hypotheses from Regression Codes}
+  %\VignetteIndexEntry{Extracting from Regression Codes}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -23,10 +23,13 @@ knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,wa
 ```
 
 ```{r,include=FALSE}
+if(!require(CALM)) {
+if(!require(remotes)) install.packages('remotes')
+remotes::install_github("cwendorf/CALM")}
 library(CALM)
 ```
 
-## Extracting from Regression Codes
+## Extracting Hypotheses from Regression Codes
 
 **CALM** can take existing coding patterns and decode them to determine the hypotheses being tested. The examples below use traditional and commonly-taught regression codes (dummy codes, effect codes, etc.) and extract the hypotheses implied by each code vector.
 

@@ -23,12 +23,17 @@ knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,wa
 ```
 
 ```{r,include=FALSE}
+if(!require(CALM)) {
+if(!require(remotes)) install.packages('remotes')
+remotes::install_github("cwendorf/CALM")}
 library(CALM)
 ```
 
 ## Producing Common Contrast Codes
 
-In the examples below, the input shows linear contrast weights (rows represented the weights for the groups, columns represent the different groups). The obtained output provides the coding pattern (where columns represent vector codes, rows represent the groups).
+**CALM** can take a set of linear contrasts to be tested and encode them into coding schemes. The examples below take some common contrasts (treatment, control, deviation, etc.) and produce the coding scheme associated with it.
+
+The package takes linear contrast weights (rows represented the weights for the groups, columns represent the different groups) and provides the coding pattern (where columns represent vector codes, rows represent the groups).
 
 ### Treatment (First) Contrasts
 

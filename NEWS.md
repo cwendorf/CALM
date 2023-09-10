@@ -3,6 +3,7 @@
 ## Developmental Version
 
 - Refactored functions
+- Added vignettes
 
 ## CALM 0.1.210823
 

@@ -48,7 +48,7 @@ difference.forward <- function(n, intercept=FALSE,contrasts = TRUE, sparse = FAL
 ### codingMatrices Equivalent: diff
 ### Original Code: codingMatrices
 
-difference.reverse <- function(n, intercept=FALSE,contrasts = TRUE, sparse = FALSE) {
+difference.reverse <- function(n, intercept=FALSE, contrasts = TRUE, sparse = FALSE) {
   if (is.numeric(n) && length(n) == 1L) {
     if (n > 1L)
       levels <- .zf(seq_len(n))

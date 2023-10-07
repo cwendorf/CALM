@@ -41,9 +41,9 @@ treatment.first <- function (n, base=1, intercept=FALSE, contrasts=TRUE, sparse=
 
 treatment.last <- function (n, intercept=FALSE, contrasts=TRUE, sparse=FALSE) {
     base <- if (is.numeric(n) && length(n) == 1L) n else length(n)
-    levels <- as.character(seq_len(n))
     cont <- contr.treatment(n, base=base, contrasts=contrasts, sparse=sparse)
-    colnames(cont) <- paste(levels[-n], levels[n], sep="-")
+    levels <- as.character(seq_len(base))
+    colnames(cont) <- paste(n[-base], n[base], sep="-")
     if(intercept) (cont <- cbind(Int=1,cont))
     cont
 }

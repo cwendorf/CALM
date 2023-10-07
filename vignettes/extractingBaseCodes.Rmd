@@ -1,16 +1,8 @@
 ---
-title: "Contrast Algorithms for Linear Models"
-author: "Craig A. Wendorf"
-date: "`r Sys.Date()`"
+subtitle: "Extracting from R BAse Contrast Codes"
 output:
-  html_document:
-    toc: true
-    toc_float: true
-    toc_depth: 4
-    collapse: true
-    theme: cerulean
-    highlight: default
-    keep_md: TRUE
+  github_document:
+    preserve_yaml: FALSE
 vignette: >
   %\VignetteIndexEntry{Extracting from R Base Contrast Codes}
   %\VignetteEngine{knitr::rmarkdown}
@@ -20,6 +12,7 @@ vignette: >
 ```{r,include=FALSE}
 #suppress the warnings and other messages from showing in the knitted file.
 knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
+devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7",filename='revised_toc.R')
 ```
 
 ```{r,include=FALSE}
@@ -35,7 +28,16 @@ library(CALM)
 
 The package takes matrix input of the coding pattern (columns represent coded vectors, rows represent the groups being represented) and outputs the linear contrasts hypotheses being represented (the rows represent the weights for the contrast, the columns represent the groups being compared).
 
+```{r toc, echo=FALSE}
+thisfile <- knitr::current_input()
+revised_toc(thisfile,base_level=3,toc_depth=4)
+```
+
+---
+
 ### contr.treatment
+
+Specify that we wish to examine the existing `contr.treatment` and then use CALM to decode it into hypotheses.
 
 ```{r}
 ex_contr.treatment <- cbind(Int=1,contr.treatment(3))
@@ -43,9 +45,11 @@ ex_contr.treatment
 calm.decode(ex_contr.treatment)
 ```
 
-The intercept is equivalent to the mean of the first group. Parameter represent the difference between each group and the first group. 
+This shows that the intercept is equivalent to the mean of the first group. The additional parameters represent the difference between each group and the first group. 
 
 ### contr.SAS
+
+Specify that we wish to examine the existing `contr.SAS` and then use CALM to decode it into hypotheses.
 
 ```{r}
 ex_contr.SAS <- cbind(Int=1,contr.SAS(3))
@@ -53,9 +57,11 @@ ex_contr.SAS
 calm.decode(ex_contr.SAS)
 ```
 
-The intercept is equivalent to the mean of the last group. Parameter represent the difference between each group and the last group.
+This shows that the intercept is equivalent to the mean of the last group. The additional parameters represent the difference between each group and the last group.
 
 ### contr.sum
+
+Specify that we wish to examine the existing `contr.sum` and then use CALM to decode it into hypotheses.
 
 ```{r}
 ex_contr.sum <- cbind(Int=1,contr.sum(3))
@@ -63,9 +69,11 @@ ex_contr.sum
 calm.decode(ex_contr.sum)
 ```
 
-The intercept is equivalent to the mean of the group means. Parameters represent the difference between each group and the grand mean. The last group is not compared.
+This shows that the intercept is equivalent to the mean of the group means. The additional parameters represent the difference between each group and the grand mean. The last group is not compared.
 
 ### contr.helmert
+
+Specify that we wish to examine the existing `contr.herlmert` and then use CALM to decode it into hypotheses.
 
 ```{r}
 ex_contr.helmert <- cbind(Int=1,contr.helmert(3))
@@ -73,9 +81,11 @@ ex_contr.helmert
 calm.decode(ex_contr.helmert)
 ```
 
-The intercept is equivalent to the mean of the group means. Parameters represent the difference between each group and the mean of the subsequent groups. 
+This shows that the intercept is equivalent to the mean of the group means. The additional parameters represent the difference between each group and the mean of the subsequent groups. 
 
 ### contr.poly
+
+Specify that we wish to examine the existing `contr.poly` and then use CALM to decode it into hypotheses.
 
 ```{r}
 ex_contr.poly <- cbind(Int=1,contr.poly(3))
@@ -83,4 +93,4 @@ ex_contr.poly
 calm.decode(ex_contr.poly)
 ```
 
-The intercept is equivalent to the mean of the group means. Parameters represent polynomial trends (linear, quadratic, etc.).
+THis shows that the intercept is equivalent to the mean of the group means. The additional parameters represent polynomial trends (linear, quadratic, etc.).

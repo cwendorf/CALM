@@ -1,16 +1,8 @@
 ---
-title: "Contrast Algorithms for Linear Models"
-author: "Craig A. Wendorf"
-date: "`r Sys.Date()`"
+subtitle: "Producing Custom Contrast Codes"
 output:
-  html_document:
-    toc: true
-    toc_float: true
-    toc_depth: 4
-    collapse: true
-    theme: cerulean
-    highlight: default
-    keep_md: TRUE
+  github_document:
+    preserve_yaml: FALSE
 vignette: >
   %\VignetteIndexEntry{Producing Custom Contrast Codes}
   %\VignetteEngine{knitr::rmarkdown}
@@ -20,6 +12,7 @@ vignette: >
 ```{r,include=FALSE}
 #suppress the warnings and other messages from showing in the knitted file.
 knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
+devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7",filename='revised_toc.R')
 ```
 
 ```{r,include=FALSE}
@@ -34,6 +27,13 @@ library(CALM)
 **CALM** can take a set of linear contrasts to be tested and encode them into coding schemes. The examples below take custom contrasts (both orthogonal and nonorthogonal) and produce the coding scheme associated with it.
 
 The package takes linear contrast weights (rows represented the weights for the groups, columns represent the different groups) and provides the coding pattern (where columns represent vector codes, rows represent the groups).
+
+```{r toc, echo=FALSE}
+thisfile <- knitr::current_input()
+revised_toc(thisfile,base_level=3,toc_depth=4)
+```
+
+---
 
 ### Orthogonal Contrasts
 

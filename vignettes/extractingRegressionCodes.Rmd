@@ -10,15 +10,16 @@ vignette: >
 ---
 
 ```{r,include=FALSE}
-#suppress the warnings and other messages from showing in the knitted file.
-knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
-devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7",filename='revised_toc.R')
+# suppress the warnings and other messages from showing in the knitted file.
+knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
+devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
 ```
 
 ```{r,include=FALSE}
-if(!require(CALM)) {
-if(!require(remotes)) install.packages('remotes')
-remotes::install_github("cwendorf/CALM")}
+if (!require(CALM)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/CALM")
+}
 library(CALM)
 ```
 
@@ -30,7 +31,7 @@ The package takes matrix input of the coding pattern (columns represent coded ve
 
 ```{r toc, echo=FALSE}
 thisfile <- knitr::current_input()
-revised_toc(thisfile,base_level=3,toc_depth=4)
+revised_toc(thisfile, base_level = 3, toc_depth = 4)
 ```
 
 ---
@@ -40,12 +41,15 @@ revised_toc(thisfile,base_level=3,toc_depth=4)
 Specify a matrix of dummy codes and then use CALM to decode it into hypotheses.
 
 ```{r}
-ex_dummy <- matrix(c(
-    1,1,0,
-    1,0,1,
-    1,0,0),
-    ncol=3,
-    byrow=TRUE)
+ex_dummy <- matrix(
+  c(
+    1, 1, 0,
+    1, 0, 1,
+    1, 0, 0
+  ),
+  ncol = 3,
+  byrow = TRUE
+)
 calm.decode(ex_dummy)
 ```
 
@@ -56,12 +60,15 @@ This shows that the intercept is equivalent to the mean of the last group. THe a
 Specify a matrix of effect codes and then use CALM to decode it into hypotheses.
 
 ```{r}
-ex_effect <- matrix(c(
-    1,1,0,
-    1,0,1,
-    1,-1,-1),
-    ncol=3,
-    byrow=TRUE)
+ex_effect <- matrix(
+  c(
+    1, 1, 0,
+    1, 0, 1,
+    1, -1, -1
+  ),
+  ncol = 3,
+  byrow = TRUE
+)
 calm.decode(ex_effect)
 ```
 
@@ -72,12 +79,15 @@ This shows that the intercept is equivalent to the mean of the group means. The 
 Specify a matrix of repeated codes and then use CALM to decode it into hypotheses.
 
 ```{r}
-ex_repeated <- matrix(c(
-    1,0,0,
-    1,1,0,
-    1,1,1),
-    ncol=3,
-    byrow=TRUE)
+ex_repeated <- matrix(
+  c(
+    1, 0, 0,
+    1, 1, 0,
+    1, 1, 1
+  ),
+  ncol = 3,
+  byrow = TRUE
+)
 calm.decode(ex_repeated)
 ```
 

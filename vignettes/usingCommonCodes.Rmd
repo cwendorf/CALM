@@ -10,15 +10,16 @@ vignette: >
 ---
 
 ```{r,include=FALSE}
-#suppress the warnings and other messages from showing in the knitted file.
-knitr::opts_chunk$set(fig.width=7, fig.height=5,fig.path='figures/',echo=TRUE,warning=FALSE,message=FALSE)
-devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7",filename='revised_toc.R')
+# suppress the warnings and other messages from showing in the knitted file.
+knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.path = "figures/", echo = TRUE, warning = FALSE, message = FALSE)
+devtools::source_gist("8e6e5dc401e3fc1042ef7a030f9d19c7", filename = "revised_toc.R")
 ```
 
 ```{r,include=FALSE}
-if(!require(CALM)) {
-if(!require(remotes)) install.packages('remotes')
-remotes::install_github("cwendorf/CALM")}
+if (!require(CALM)) {
+  if (!require(remotes)) install.packages("remotes")
+  remotes::install_github("cwendorf/CALM")
+}
 library(CALM)
 ```
 
@@ -28,7 +29,7 @@ library(CALM)
 
 ```{r toc, echo=FALSE}
 thisfile <- knitr::current_input()
-revised_toc(thisfile,base_level=3,toc_depth=4)
+revised_toc(thisfile, base_level = 3, toc_depth = 4)
 ```
 
 ---
@@ -39,16 +40,16 @@ For the sake of example, this site uses the following data. For reference, the g
 
 ```{r}
 mtcars
-mtcars$cyl <- factor(mtcars$cyl) 
-summary(lm(mpg~cyl,data=mtcars))
-tapply(mtcars$mpg,mtcars$cyl,mean)
+mtcars$cyl <- factor(mtcars$cyl)
+summary(lm(mpg ~ cyl, data = mtcars))
+tapply(mtcars$mpg, mtcars$cyl, mean)
 ```
 
 ### Treatment (First) Contrasts
 
 ```{r}
 contrasts(mtcars$cyl) <- treatment.first
-summary(lm(mpg~cyl,data=mtcars))$coefficients
+summary(lm(mpg ~ cyl, data = mtcars))$coefficients
 ```
 
 As specified, the intercept is equivalent to the mean of the first group. The additional parameters represent the difference between each group and the first group.
@@ -57,7 +58,7 @@ As specified, the intercept is equivalent to the mean of the first group. The ad
 
 ```{r}
 contrasts(mtcars$cyl) <- treatment.last
-summary(lm(mpg~cyl,data=mtcars))$coefficients
+summary(lm(mpg ~ cyl, data = mtcars))$coefficients
 ```
 
 As specified, the intercept is equivalent to the mean of the last group. The additional parameters represent the difference between each group and the last group.
@@ -66,7 +67,7 @@ As specified, the intercept is equivalent to the mean of the last group. The add
 
 ```{r}
 contrasts(mtcars$cyl) <- control.first
-summary(lm(mpg~cyl,data=mtcars))$coefficients
+summary(lm(mpg ~ cyl, data = mtcars))$coefficients
 ```
 
 As specified, the intercept is equivalent to the mean of the group means. The additional parameters represent the difference between each group and the first group.
@@ -75,7 +76,7 @@ As specified, the intercept is equivalent to the mean of the group means. The ad
 
 ```{r}
 contrasts(mtcars$cyl) <- control.last
-summary(lm(mpg~cyl,data=mtcars))$coefficients
+summary(lm(mpg ~ cyl, data = mtcars))$coefficients
 ```
 
 As specified, the intercept is equivalent to the mean of the group means. The additional parameters represent the difference between each group and the last group.
@@ -84,7 +85,7 @@ As specified, the intercept is equivalent to the mean of the group means. The ad
 
 ```{r}
 contrasts(mtcars$cyl) <- deviation.first
-summary(lm(mpg~cyl,data=mtcars))$coefficients
+summary(lm(mpg ~ cyl, data = mtcars))$coefficients
 ```
 
 As specified, the intercept is equivalent to the mean of the group means. The additional parameters represent the difference between each group and the grand mean. The first group is not compared. 
@@ -93,7 +94,7 @@ As specified, the intercept is equivalent to the mean of the group means. The ad
 
 ```{r}
 contrasts(mtcars$cyl) <- deviation.last
-summary(lm(mpg~cyl,data=mtcars))$coefficients
+summary(lm(mpg ~ cyl, data = mtcars))$coefficients
 ```
 
 As specified, the intercept is equivalent to the mean of the group means. The additional parameters represent the difference between each group and the grand mean. The last group is not compared.
@@ -102,7 +103,7 @@ As specified, the intercept is equivalent to the mean of the group means. The ad
 
 ```{r}
 contrasts(mtcars$cyl) <- helmert.forward
-summary(lm(mpg~cyl,data=mtcars))$coefficients
+summary(lm(mpg ~ cyl, data = mtcars))$coefficients
 ```
 
 As specified, the intercept is equivalent to the mean of the group means. The additional parameters represent the difference between each group and the mean of the subsequent groups. 
@@ -111,7 +112,7 @@ As specified, the intercept is equivalent to the mean of the group means. The ad
 
 ```{r}
 contrasts(mtcars$cyl) <- helmert.reverse
-summary(lm(mpg~cyl,data=mtcars))$coefficients
+summary(lm(mpg ~ cyl, data = mtcars))$coefficients
 ```
 
 As specified, the intercept is equivalent to the mean of the group means. The additional parameters represent the difference between each group and the mean of the previous groups.
@@ -120,7 +121,7 @@ As specified, the intercept is equivalent to the mean of the group means. The ad
 
 ```{r}
 contrasts(mtcars$cyl) <- repeated.forward
-summary(lm(mpg~cyl,data=mtcars))$coefficients
+summary(lm(mpg ~ cyl, data = mtcars))$coefficients
 ```
 
 As specified, the intercept is equivalent to the mean of the first group. The additional parameters represent the difference between each group and the subsequent group.
@@ -129,7 +130,7 @@ As specified, the intercept is equivalent to the mean of the first group. The ad
 
 ```{r}
 contrasts(mtcars$cyl) <- repeated.reverse
-summary(lm(mpg~cyl,data=mtcars))$coefficients
+summary(lm(mpg ~ cyl, data = mtcars))$coefficients
 ```
 
 As specified, the intercept is equivalent to the mean of the first group. The additional parameters represent the difference between each group and the previous group.
@@ -138,7 +139,7 @@ As specified, the intercept is equivalent to the mean of the first group. The ad
 
 ```{r}
 contrasts(mtcars$cyl) <- difference.forward
-summary(lm(mpg~cyl,data=mtcars))$coefficients
+summary(lm(mpg ~ cyl, data = mtcars))$coefficients
 ```
 
 As specified, the intercept is equivalent to the mean of the group means. The additional parameters represent the difference between each group and the subsequent group. 
@@ -147,7 +148,7 @@ As specified, the intercept is equivalent to the mean of the group means. The ad
 
 ```{r}
 contrasts(mtcars$cyl) <- difference.reverse
-summary(lm(mpg~cyl,data=mtcars))$coefficients
+summary(lm(mpg ~ cyl, data = mtcars))$coefficients
 ```
 
 As specified, the intercept is equivalent to the mean of the group means. The additional parameters represent the difference between each group and the previous group. 

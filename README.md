@@ -38,7 +38,7 @@ The [Tutorials for CALM](./docs/README.md) provide basic documentation and examp
 
 - GitHub Issues: [https://github.com/cwendorf/CALM/issues](https://github.com/cwendorf/CALM/issues) 
 - Author Email: [cwendorf@uwsp.edu](mailto:cwendorf@uwsp.edu)
-- Author Homepage: [https://cwendorf.github.io](https://cwendorf.github.io)
+- Author Homepage: [https://www.uwsp.edu/directory/profile/craig-wendorf/](https://www.uwsp.edu/directory/profile/craig-wendorf/)
 
 ### Citation
 

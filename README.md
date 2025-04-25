@@ -28,11 +28,20 @@ source("http://raw.githubusercontent.com/cwendorf/CALM/main/source-CALM.R")
 
 ### Usage
 
-The [Tutorials for CALM](./docs/README.md) provide basic documentation and examples of:
+**CALM** can take existing coding patterns and decode them to determine the hypotheses being tested. 
 
-- Extracting hypotheses from existing coding patterns
-- Producing codes from contrast hypotheses
-- Using predefined and custom codes in linear models
+- [Extracting Regression Codes](./docs/extractingRegressionCodes.md) - Examples of extracting from traditional regression codes
+- [Extracting Base Codes](./docs/extractingBaseCodes.md) - Examples of extracting from R Base contrast codes
+
+**CALM** can take a set of linear contrasts to be tested and produce coding schemes. 
+
+- [Producing Common Codes](./docs/producingCommonCodes.md) - Examples of producing commonly specified contrast codes 
+- [Producing Custom Codes](./docs/producingCustomCodes.md) - Examples of producing custom contrast codes
+
+**CALM** can be used in conjunction with R's analytical strategies (like the Linear Model) to test hypotheses for real data problems.
+
+- [Using Common Codes](./docs/usingCommonCodes.md) - Examples using the package's built-in contrast codes
+- [Using Custom Codes](./docs/usingCustomCodes.md) - Examples using custom contrast codes
 
 ### Contact Me
 

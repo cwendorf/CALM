@@ -1,7 +1,7 @@
 
 ## Using Common Contrast Codes
 
-**CALM** includes a complete set of commonly used coding schemes that
+`CALM` includes a complete set of commonly used coding schemes that
 can be used directly in linear model specifications. The examples below
 use the built-in codes in the context of a General Linear Model to test
 the associated hypotheses.

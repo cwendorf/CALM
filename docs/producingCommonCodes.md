@@ -1,7 +1,7 @@
 
 ## Producing Common Contrast Codes
 
-**CALM** can take a set of linear contrasts to be tested and encode them
+`CALM` can take a set of linear contrasts to be tested and encode them
 into coding schemes. The examples below take some common contrasts
 (treatment, control, deviation, etc.) and produce the coding scheme
 associated with it.

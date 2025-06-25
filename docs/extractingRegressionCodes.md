@@ -1,7 +1,7 @@
 
 ## Extracting Hypotheses from Regression Codes
 
-**CALM** can take existing coding patterns and decode them to determine
+`CALM` can take existing coding patterns and decode them to determine
 the hypotheses being tested. The examples below use traditional and
 commonly-taught regression codes (dummy codes, effect codes, etc.) and
 extract the hypotheses implied by each code vector.

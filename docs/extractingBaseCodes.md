@@ -1,7 +1,7 @@
 
 ## Extracting Hypotheses from Base R Contrast Codes
 
-**CALM** can take existing coding patterns and decode them to determine
+`CALM` can take existing coding patterns and decode them to determine
 the hypotheses being tested. The examples below use the built-in codes
 in R (treatment, SAS, sum, helmert, and poly) and extract the hypotheses
 implied by each code vector.

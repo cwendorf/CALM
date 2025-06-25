@@ -1,7 +1,7 @@
 
 ## Producing Custom Contrast Codes
 
-**CALM** can take a set of linear contrasts to be tested and encode them
+`CALM` can take a set of linear contrasts to be tested and encode them
 into coding schemes. The examples below take custom contrasts (both
 orthogonal and nonorthogonal) and produce the coding scheme associated
 with it.

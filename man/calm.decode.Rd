@@ -18,6 +18,6 @@ A numeric matrix representing the decoded hypothesis matrix. Row names are label
 Recovers the hypothesis matrix from a coded contrast matrix.
 }
 \details{
-This function inverts the encoding process via least-squares pseudoinverse. 
+This function inverts the encoding process via least-squares pseudoinverse.
 This reconstructs a hypothesis matrix from the coding matrix.
 }

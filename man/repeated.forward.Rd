@@ -9,11 +9,11 @@ repeated.forward(n, intercept = FALSE, contrasts = TRUE, sparse = FALSE)
 \arguments{
 \item{n}{An integer specifying the number of levels, or a character vector specifying the level names.}
 
-\item{intercept}{Logical. If `TRUE`, includes a column for the intercept.}
+\item{intercept}{Logical. If \code{TRUE}, includes a column for the intercept.}
 
-\item{contrasts}{Logical. If `TRUE`, returns contrast codes; if `FALSE`, returns an identity matrix.}
+\item{contrasts}{Logical. If \code{TRUE}, returns contrast codes; if \code{FALSE}, returns an identity matrix.}
 
-\item{sparse}{Logical. If `TRUE`, returns the matrix in sparse form using `.asSparse()`.}
+\item{sparse}{Logical. If \code{TRUE}, returns the matrix in sparse form using \code{.asSparse()}.}
 }
 \value{
 A contrast matrix of size \code{n x (n - 1)} (or \code{n x n} if \code{contrasts = FALSE}),
@@ -24,13 +24,13 @@ Generates repeated forward contrast coding.
 This type of contrast compares each level to the immediately preceding level, moving forward.
 }
 \details{
-**Contrast Type**: Repeated (Forward)\cr
-**R Equivalent**: none\cr
-**SPSS Equivalent**: none\cr
-**MR Equivalent**: none\cr
-**codingMatrices Equivalent**: contr.diff\cr
+\strong{Contrast Type}: Repeated (Forward)\cr
+\strong{R Equivalent}: none\cr
+\strong{SPSS Equivalent}: none\cr
+\strong{MR Equivalent}: none\cr
+\strong{codingMatrices Equivalent}: contr.diff\cr
 }
 \note{
-This function is adapted from the `codingMatrices` package.
+This function is adapted from the \code{codingMatrices} package.
 It implements repeated forward contrasts, useful for comparing each level with its predecessor.
 }

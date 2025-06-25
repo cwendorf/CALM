@@ -1,11 +1,16 @@
 Package: CALM
 Type: Package
 Title: Contrast Algorithms for Linear Models
-Description: An R Package to Create and Interpret Contrast Codes 
-Version: 1.0.231003
+Description: CALM provides a suite of functions to create and apply contrast codes for linear models. 
+Version: 1.1.250625
+Authors@R: person("Craig", "Wendorf", email = "cwendorf@uwsp.edu", role = c("aut", "cre"))
+License: MIT + file LICENSE
+URL: https://github.com/cwendorf/CALM
+BugReports: https://github.com/cwendorf/CALM/issues
 Depends: R (>= 3.6.2)
 Encoding: UTF-8
 LazyData: true
-Suggests: knitr, rmarkdown
-VignetteBuilder: knitr
+Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
+Imports: stats, utils
+VignetteBuilder: knitr

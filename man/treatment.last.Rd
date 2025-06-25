@@ -13,7 +13,7 @@ treatment.last(n, intercept = FALSE, contrasts = TRUE, sparse = FALSE)
 
 \item{contrasts}{Logical. If \code{TRUE}, returns contrast codes; if \code{FALSE}, returns an identity matrix.}
 
-\item{sparse}{Logical. If \code{TRUE}, returns the matrix in sparse form using `.asSparse()`.}
+\item{sparse}{Logical. If \code{TRUE}, returns the matrix in sparse form using \code{.asSparse()}.}
 }
 \value{
 A contrast matrix of size \code{n x (n - 1)} (or \code{n x n} if \code{contrasts = FALSE}),
@@ -23,11 +23,11 @@ optionally in sparse format. If \code{intercept = TRUE}, a column of 1s is prepe
 Generates treatment contrast coding using the last level as the baseline.
 }
 \details{
-**Contrast Type**: Treatment (Last)\cr
-**R Equivalent**: \code{contr.SAS}\cr
-**SPSS Equivalent**: simple (last)\cr
-**MR Equivalent**: dummy\cr
-**codingMatrices Equivalent**: none\cr
+\strong{Contrast Type}: Treatment (Last)\cr
+\strong{R Equivalent}: \code{contr.SAS}\cr
+\strong{SPSS Equivalent}: simple (last)\cr
+\strong{MR Equivalent}: dummy\cr
+\strong{codingMatrices Equivalent}: none\cr
 }
 \note{
 This function is adapted from the base R implementation of treatment contrasts. It uses the last level

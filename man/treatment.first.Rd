@@ -17,11 +17,11 @@ treatment.first(
 
 \item{base}{An integer indicating which level to use as the baseline (default is 1).}
 
-\item{intercept}{Logical. If `TRUE`, includes a column for the intercept.}
+\item{intercept}{Logical. If \code{TRUE}, includes a column for the intercept.}
 
-\item{contrasts}{Logical. If `TRUE`, returns contrast codes; if `FALSE`, returns an identity matrix.}
+\item{contrasts}{Logical. If \code{TRUE}, returns contrast codes; if \code{FALSE}, returns an identity matrix.}
 
-\item{sparse}{Logical. If `TRUE`, returns the matrix in sparse form using `.asSparse()`.}
+\item{sparse}{Logical. If \code{TRUE}, returns the matrix in sparse form using \code{.asSparse()}.}
 }
 \value{
 A contrast matrix of size \code{n x (n - 1)} (or \code{n x n} if \code{contrasts = FALSE}),
@@ -31,11 +31,11 @@ optionally in sparse format. If \code{intercept = TRUE}, a column of 1s is prepe
 Generates treatment contrast coding using the first level as the baseline.
 }
 \details{
-**Contrast Type**: Treatment (First)\cr
-**R Equivalent**: \code{contr.treatment}\cr
-**SPSS Equivalent**: simple (first)\cr
-**MR Equivalent**: none\cr
-**codingMatrices Equivalent**: none\cr
+\strong{Contrast Type}: Treatment (First)\cr
+\strong{R Equivalent}: \code{contr.treatment}\cr
+\strong{SPSS Equivalent}: simple (first)\cr
+\strong{MR Equivalent}: none\cr
+\strong{codingMatrices Equivalent}: none\cr
 }
 \note{
 This function is adapted from the base R implementation of treatment contrasts. It uses the first level

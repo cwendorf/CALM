@@ -9,11 +9,11 @@ deviation.last(n, intercept = FALSE, contrasts = TRUE, sparse = FALSE)
 \arguments{
 \item{n}{An integer specifying the number of levels, or a character vector specifying the level names.}
 
-\item{intercept}{Logical. If `TRUE`, includes a column for the intercept.}
+\item{intercept}{Logical. If \code{TRUE}, includes a column for the intercept.}
 
-\item{contrasts}{Logical. If `TRUE`, returns contrast codes; if `FALSE`, returns an identity matrix.}
+\item{contrasts}{Logical. If \code{TRUE}, returns contrast codes; if \code{FALSE}, returns an identity matrix.}
 
-\item{sparse}{Logical. If `TRUE`, returns the matrix in sparse form using `.Diag()`.}
+\item{sparse}{Logical. If \code{TRUE}, returns the matrix in sparse form using \code{.Diag()}.}
 }
 \value{
 A contrast matrix of size \code{n x (n - 1)} (or \code{n x n} if \code{contrasts = FALSE}),
@@ -22,16 +22,16 @@ optionally in sparse format. If \code{intercept = TRUE}, a column of 1s is prepe
 \description{
 Generates deviation contrast coding with the last level as the reference.
 This contrast compares each level to the overall mean deviation from the last level.
-This coding is equivalent to R's base `contr.sum`.
+This coding is equivalent to R's base \code{contr.sum}.
 }
 \details{
-**Contrast Type**: Deviation (Last)\cr
-**R Equivalent**: \code{contr.sum}\cr
-**SPSS Equivalent**: deviation\cr
-**MR Equivalent**: effect\cr
-**codingMatrices Equivalent**: deviation\cr
+\strong{Contrast Type}: Deviation (Last)\cr
+\strong{R Equivalent}: \code{contr.sum}\cr
+\strong{SPSS Equivalent}: deviation\cr
+\strong{MR Equivalent}: effect\cr
+\strong{codingMatrices Equivalent}: deviation\cr
 }
 \note{
-This function implements the deviation contrast coding similar to R base `contr.sum`.
+This function implements the deviation contrast coding similar to R base \code{contr.sum}.
 It is adapted for use with sparse matrices and extended functionality.
 }

@@ -17,11 +17,11 @@ polynomial(
 
 \item{scores}{Numeric vector of scores to assign to each level; defaults to equally spaced integers.}
 
-\item{intercept}{Logical. If `TRUE`, includes a column for the intercept.}
+\item{intercept}{Logical. If \code{TRUE}, includes a column for the intercept.}
 
-\item{contrasts}{Logical. If `TRUE`, returns contrast codes; if `FALSE`, returns the full matrix including intercept.}
+\item{contrasts}{Logical. If \code{TRUE}, returns contrast codes; if \code{FALSE}, returns the full matrix including intercept.}
 
-\item{sparse}{Logical. If `TRUE`, returns the matrix in sparse form using `.asSparse()`.}
+\item{sparse}{Logical. If \code{TRUE}, returns the matrix in sparse form using \code{.asSparse()}.}
 }
 \value{
 A contrast matrix of size \code{n x (n - 1)} (or \code{n x n} if \code{contrasts = FALSE}),
@@ -32,11 +32,11 @@ Generates orthogonal polynomial contrast coding.
 This contrast is used to test for polynomial trends (linear, quadratic, cubic, etc.) across ordered factor levels.
 }
 \details{
-**Contrast Type**: Polynomial\cr
-**R Equivalent**: \code{contr.poly}\cr
-**SPSS Equivalent**: polynomial\cr
-**MR Equivalent**: polynomial\cr
-**codingMatrices Equivalent**: poly\cr
+\strong{Contrast Type}: Polynomial\cr
+\strong{R Equivalent}: \code{contr.poly}\cr
+\strong{SPSS Equivalent}: polynomial\cr
+\strong{MR Equivalent}: polynomial\cr
+\strong{codingMatrices Equivalent}: poly\cr
 }
 \note{
 This function is adapted from the base R polynomial contrasts implementation,

@@ -9,11 +9,11 @@ control.first(n, intercept = FALSE, contrasts = TRUE, sparse = FALSE)
 \arguments{
 \item{n}{An integer specifying the number of levels, or a character vector specifying the level names.}
 
-\item{intercept}{Logical. If `TRUE`, includes a column for the intercept.}
+\item{intercept}{Logical. If \code{TRUE}, includes a column for the intercept.}
 
-\item{contrasts}{Logical. If `TRUE`, returns contrast codes; if `FALSE`, returns an identity matrix.}
+\item{contrasts}{Logical. If \code{TRUE}, returns contrast codes; if \code{FALSE}, returns an identity matrix.}
 
-\item{sparse}{Logical. If `TRUE`, returns the matrix in sparse form using `.asSparse()`.}
+\item{sparse}{Logical. If \code{TRUE}, returns the matrix in sparse form using \code{.asSparse()}.}
 }
 \value{
 A contrast matrix of size \code{n x (n - 1)} (or \code{n x n} if \code{contrasts = FALSE}),
@@ -24,13 +24,13 @@ Generates contrast coding with the first level as the control group.
 This type of coding is useful for comparing all other groups to a baseline.
 }
 \details{
-**Contrast Type**: Control (First)\cr
-**R Equivalent**: none\cr
-**SPSS Equivalent**: none\cr
-**MR Equivalent**: none\cr
-**codingMatrices Equivalent**: control
+\strong{Contrast Type}: Control (First)\cr
+\strong{R Equivalent}: none\cr
+\strong{SPSS Equivalent}: none\cr
+\strong{MR Equivalent}: none\cr
+\strong{codingMatrices Equivalent}: control
 }
 \note{
-This function is adapted from the original implementation in the `codingMatrices` package.
+This function is adapted from the original implementation in the \code{codingMatrices} package.
 It provides control-type contrasts not available in base R, often used in experimental and survey designs.
 }

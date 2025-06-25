@@ -1,13 +1,31 @@
 # Contrast Algorithms for Linear Models
 ## Contrast: Difference
 
-### Contrast: Difference (Forward)
-### R Equivalent: none
-### SPSS Equivalent: none
-### MR Equivalent: none
-### codingMatrices Equivalent: diff_forward
-### Original Code: codingMatrices
-
+#' Difference Forward Contrast Coding
+#'
+#' Generates forward difference contrast coding.
+#' This type of coding compares each level to the subsequent level in a forward manner.
+#'
+#' @param n An integer specifying the number of levels, or a character vector specifying the level names.
+#' @param intercept Logical. If `TRUE`, includes a column for the intercept.
+#' @param contrasts Logical. If `TRUE`, returns contrast codes; if `FALSE`, returns an identity matrix.
+#' @param sparse Logical. If `TRUE`, returns the matrix in sparse form using `.asSparse()`.
+#'
+#' @return A contrast matrix of size \code{n x (n - 1)} (or \code{n x n} if \code{contrasts = FALSE}),
+#' optionally in sparse format. If \code{intercept = TRUE}, a column of 1s is prepended to the matrix.
+#'
+#' @details
+#' **Contrast Type**: Difference (Forward)\cr
+#' **R Equivalent**: none\cr
+#' **SPSS Equivalent**: none\cr
+#' **MR Equivalent**: none\cr
+#' **codingMatrices Equivalent**: diff_forward
+#' 
+#' @note
+#' This function is adapted from the original implementation in the `codingMatrices` package.
+#' It provides forward difference contrasts, which are useful for ordered factor comparisons.
+#'
+#' @export
 difference.forward <- function(n, intercept = FALSE, contrasts = TRUE, sparse = FALSE) {
   if (is.numeric(n) && length(n) == 1L) {
     if (n > 1L) {
@@ -44,13 +62,31 @@ difference.forward <- function(n, intercept = FALSE, contrasts = TRUE, sparse = 
   }
 }
 
-### Contrast: Difference (Reverse)
-### R Equivalent: none
-### SPSS Equivalent: none
-### MR Equivalent: none
-### codingMatrices Equivalent: diff
-### Original Code: codingMatrices
-
+#' Difference Reverse Contrast Coding
+#'
+#' Generates reverse difference contrast coding.
+#' This type of coding compares each level to the previous level in a reverse manner.
+#'
+#' @param n An integer specifying the number of levels, or a character vector specifying the level names.
+#' @param intercept Logical. If `TRUE`, includes a column for the intercept.
+#' @param contrasts Logical. If `TRUE`, returns contrast codes; if `FALSE`, returns an identity matrix.
+#' @param sparse Logical. If `TRUE`, returns the matrix in sparse form using `.asSparse()`.
+#'
+#' @return A contrast matrix of size \code{n x (n - 1)} (or \code{n x n} if \code{contrasts = FALSE}),
+#' optionally in sparse format. If \code{intercept = TRUE}, a column of 1s is prepended to the matrix.
+#'
+#' @details
+#' **Contrast Type**: Difference (Reverse)\cr
+#' **R Equivalent**: none\cr
+#' **SPSS Equivalent**: none\cr
+#' **MR Equivalent**: none\cr
+#' **codingMatrices Equivalent**: diff\cr
+#'
+#' @note
+#' This function is adapted from the original implementation in the `codingMatrices` package.
+#' It provides reverse difference contrasts, useful for ordered factor comparisons in reverse order.
+#'
+#' @export
 difference.reverse <- function(n, intercept = FALSE, contrasts = TRUE, sparse = FALSE) {
   if (is.numeric(n) && length(n) == 1L) {
     if (n > 1L) {

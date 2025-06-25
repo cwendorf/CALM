@@ -1,13 +1,31 @@
 # Contrast Algorithms for Linear Models
 ## Contrast: Control
 
-### Contrast: Control (First)
-### R Equivalent: none
-### SPSS Equivalent: none
-### MR Equivalent: none
-### codingMatrices Equivalent: control
-### Original Code: codingMatrices
-
+#' Control First Contrast Coding
+#'
+#' Generates contrast coding with the first level as the control group.
+#' This type of coding is useful for comparing all other groups to a baseline.
+#'
+#' @param n An integer specifying the number of levels, or a character vector specifying the level names.
+#' @param intercept Logical. If `TRUE`, includes a column for the intercept.
+#' @param contrasts Logical. If `TRUE`, returns contrast codes; if `FALSE`, returns an identity matrix.
+#' @param sparse Logical. If `TRUE`, returns the matrix in sparse form using `.asSparse()`.
+#'
+#' @return A contrast matrix of size \code{n x (n - 1)} (or \code{n x n} if \code{contrasts = FALSE}),
+#' optionally in sparse format. If \code{intercept = TRUE}, a column of 1s is prepended to the matrix.
+#'
+#' @details
+#' **Contrast Type**: Control (First)\cr
+#' **R Equivalent**: none\cr
+#' **SPSS Equivalent**: none\cr
+#' **MR Equivalent**: none\cr
+#' **codingMatrices Equivalent**: control
+#'
+#' @note
+#' This function is adapted from the original implementation in the `codingMatrices` package.
+#' It provides control-type contrasts not available in base R, often used in experimental and survey designs.
+#'
+#' @export
 control.first <- function(n, intercept = FALSE, contrasts = TRUE, sparse = FALSE) {
   if (is.numeric(n) && length(n) == 1L) {
     if (n > 1L) {
@@ -39,13 +57,31 @@ control.first <- function(n, intercept = FALSE, contrasts = TRUE, sparse = FALSE
   }
 }
 
-### Contrast: Control (Last)
-### R Equivalent: none
-### SPSS Equivalent: none
-### MR Equivalent: none
-### codingMatrices Equivalent: control_last
-### Original Code: codingMatrices
-
+#' Control Last Contrast Coding
+#'
+#' Generates contrast coding with the last level as the control group.
+#' This type of coding is useful for comparing all other groups against the last (reference) level.
+#'
+#' @param n An integer specifying the number of levels, or a character vector specifying the level names.
+#' @param intercept Logical. If `TRUE`, includes a column for the intercept.
+#' @param contrasts Logical. If `TRUE`, returns contrast codes; if `FALSE`, returns an identity matrix.
+#' @param sparse Logical. If `TRUE`, returns the matrix in sparse form using `.asSparse()`.
+#'
+#' @return A contrast matrix of size \code{n x (n - 1)} (or \code{n x n} if \code{contrasts = FALSE}),
+#' optionally in sparse format. If \code{intercept = TRUE}, a column of 1s is prepended to the matrix.
+#'
+#' @details
+#' **Contrast Type**: Control (Last)\cr
+#' **R Equivalent**: none\cr
+#' **SPSS Equivalent**: none\cr
+#' **MR Equivalent**: none\cr
+#' **codingMatrices Equivalent**: control_last
+#'
+#' @note
+#' This function is adapted from the original implementation in the `codingMatrices` package.
+#' It provides control-type contrasts not available in base R, often used in experimental and survey designs.
+#'
+#' @export
 control.last <- function(n, intercept = FALSE, contrasts = TRUE, sparse = FALSE) {
   if (is.numeric(n) && length(n) == 1L) {
     if (n > 1L) {

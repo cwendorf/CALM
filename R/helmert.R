@@ -1,13 +1,31 @@
 # Contrast Algorithms for Linear Models
 ## Contrast: Helmert
 
-### Contrast: Helmert (Forward)
-### R Equivalent: none
-### SPSS Equivalent: helmert
-### MR Equivalent: none
-### codingMatrices Equivalent: helmert_forward
-### Original Code: codingMatrices
-
+#' Helmert Forward Contrast Coding
+#'
+#' Generates forward Helmert contrast coding.
+#' This contrast compares each level to the mean of the subsequent levels.
+#'
+#' @param n An integer specifying the number of levels, or a character vector specifying the level names.
+#' @param intercept Logical. If `TRUE`, includes a column for the intercept.
+#' @param contrasts Logical. If `TRUE`, returns contrast codes; if `FALSE`, returns an identity matrix.
+#' @param sparse Logical. If `TRUE`, returns the matrix in sparse form using `.asSparse()`.
+#'
+#' @return A contrast matrix of size \code{n x (n - 1)} (or \code{n x n} if \code{contrasts = FALSE}),
+#' optionally in sparse format. If \code{intercept = TRUE}, a column of 1s is prepended to the matrix.
+#'
+#' @details
+#' **Contrast Type**: Helmert (Forward)\cr
+#' **R Equivalent**: none\cr
+#' **SPSS Equivalent**: helmert\cr
+#' **MR Equivalent**: none\cr
+#' **codingMatrices Equivalent**: helmert_forward
+#' 
+#' @note
+#' This function is adapted from the original implementation in the `codingMatrices` package.
+#' Forward Helmert contrasts are useful for comparing each level to the average of the following levels.
+#'
+#' @export
 helmert.forward <- function(n, intercept = FALSE, contrasts = TRUE, sparse = FALSE) {
   if (is.numeric(n) && length(n) == 1L) {
     if (n > 1L) {
@@ -37,13 +55,31 @@ helmert.forward <- function(n, intercept = FALSE, contrasts = TRUE, sparse = FAL
   }
 }
 
-### Contrast: Helmert (Reverse)
-### R Equivalent: helmert
-### SPSS Equivalent: difference
-### MR Equivalent: none
-### codingMatrices Equivalent: helmert
-### Original Code: codingMatrices
-
+#' Helmert Reverse Contrast Coding
+#'
+#' Generates reverse Helmert contrast coding.
+#' This contrast compares each level to the mean of the preceding levels.
+#'
+#' @param n An integer specifying the number of levels, or a character vector specifying the level names.
+#' @param intercept Logical. If `TRUE`, includes a column for the intercept.
+#' @param contrasts Logical. If `TRUE`, returns contrast codes; if `FALSE`, returns an identity matrix.
+#' @param sparse Logical. If `TRUE`, returns the matrix in sparse form using `.asSparse()`.
+#'
+#' @return A contrast matrix of size \code{n x (n - 1)} (or \code{n x n} if \code{contrasts = FALSE}),
+#' optionally in sparse format. If \code{intercept = TRUE}, a column of 1s is prepended to the matrix.
+#'
+#' @details
+#' **Contrast Type**: Helmert (Reverse)\cr
+#' **R Equivalent**: \code{helmert}\cr
+#' **SPSS Equivalent**: difference\cr
+#' **MR Equivalent**: none\cr
+#' **codingMatrices Equivalent**: helmert\cr
+#'
+#' @note
+#' This function is adapted from the original implementation in the `codingMatrices` package.
+#' Reverse Helmert contrasts are useful for comparing each level to the average of the preceding levels.
+#'
+#' @export
 helmert.reverse <- function(n, intercept = FALSE, contrasts = TRUE, sparse = FALSE) {
   if (is.numeric(n) && length(n) == 1L) {
     if (n > 1L) {

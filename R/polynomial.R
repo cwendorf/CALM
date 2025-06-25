@@ -1,13 +1,32 @@
 # Contrast Algorithms for Linear Models
 ## Contrast: Polynomial
 
-### Contrast: Polynomial
-### R Equivalent: contr.poly
-### SPSS Equivalent: polynomial
-### MR Equivalent: polynomial
-### codingMatrices Equivalent: poly
-### Original Code: R Base
-
+#' Polynomial Contrast Coding
+#'
+#' Generates orthogonal polynomial contrast coding.
+#' This contrast is used to test for polynomial trends (linear, quadratic, cubic, etc.) across ordered factor levels.
+#'
+#' @param n An integer specifying the number of levels, or a vector specifying the level names.
+#' @param scores Numeric vector of scores to assign to each level; defaults to equally spaced integers.
+#' @param intercept Logical. If `TRUE`, includes a column for the intercept.
+#' @param contrasts Logical. If `TRUE`, returns contrast codes; if `FALSE`, returns the full matrix including intercept.
+#' @param sparse Logical. If `TRUE`, returns the matrix in sparse form using `.asSparse()`.
+#'
+#' @return A contrast matrix of size \code{n x (n - 1)} (or \code{n x n} if \code{contrasts = FALSE}),
+#' optionally in sparse format. If \code{intercept = TRUE}, a column of 1s is included.
+#'
+#' @details
+#' **Contrast Type**: Polynomial\cr
+#' **R Equivalent**: \code{contr.poly}\cr
+#' **SPSS Equivalent**: polynomial\cr
+#' **MR Equivalent**: polynomial\cr
+#' **codingMatrices Equivalent**: poly\cr
+#'
+#' @note
+#' This function is adapted from the base R polynomial contrasts implementation,
+#' with added support for sparse matrices and an intercept column.
+#'
+#' @export
 polynomial <- function(n, scores = 1:n, intercept = FALSE, contrasts = TRUE, sparse = FALSE) {
   make.poly <- function(n, scores) {
     y <- scores - mean(scores)

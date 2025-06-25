@@ -1,13 +1,32 @@
 # Contrast Algorithms for Linear Models
 ## Contrast: Deviation
 
-### Contrast: Deviation (First)
-### R Equivalent: none
-### SPSS Equivalent: none
-### MR Equivalent: none
-### codingMatrices Equivalent: deviation_first
-### Original Code: codingMatrices
-
+#' Deviation First Contrast Coding
+#'
+#' Generates deviation contrast coding with the first level as the reference.
+#' This contrast type compares each level to the overall mean deviation from the first level.
+#'
+#' @param n An integer specifying the number of levels, or a character vector specifying the level names.
+#' @param intercept Logical. If `TRUE`, includes a column for the intercept.
+#' @param contrasts Logical. If `TRUE`, returns contrast codes; if `FALSE`, returns an identity matrix.
+#' @param sparse Logical. If `TRUE`, returns the matrix in sparse form using `.asSparse()`.
+#'
+#' @return A contrast matrix of size \code{n x (n - 1)} (or \code{n x n} if \code{contrasts = FALSE}),
+#' optionally in sparse format. If \code{intercept = TRUE}, a column of 1s is prepended to the matrix.
+#'
+#' @details
+#' **Contrast Type**: Deviation (First)\cr
+#' **R Equivalent**: none\cr
+#' **SPSS Equivalent**: none\cr
+#' **MR Equivalent**: none\cr
+#' **codingMatrices Equivalent**: deviation_first
+#'
+#' @note
+#' This function is adapted from the original implementation in the `codingMatrices` package.
+#' It provides deviation-type contrasts not available in base R, useful for comparing group means
+#' relative to the first level.
+#'
+#' @export
 deviation.first <- function(n, intercept = FALSE, contrasts = TRUE, sparse = FALSE) {
   if (is.numeric(n) && length(n) == 1L) {
     if (n > 1L) {
@@ -35,13 +54,32 @@ deviation.first <- function(n, intercept = FALSE, contrasts = TRUE, sparse = FAL
   }
 }
 
-### Contrast: Deviation (Last)
-### R Equivalent: contr.sum
-### SPSS Equivalent: deviation
-### MR Equivalent: effect
-### codingMatrices Equivalent: deviation
-### Original Code: R Base
-
+#' Deviation Last Contrast Coding
+#'
+#' Generates deviation contrast coding with the last level as the reference.
+#' This contrast compares each level to the overall mean deviation from the last level.
+#' This coding is equivalent to R's base `contr.sum`.
+#'
+#' @param n An integer specifying the number of levels, or a character vector specifying the level names.
+#' @param intercept Logical. If `TRUE`, includes a column for the intercept.
+#' @param contrasts Logical. If `TRUE`, returns contrast codes; if `FALSE`, returns an identity matrix.
+#' @param sparse Logical. If `TRUE`, returns the matrix in sparse form using `.Diag()`.
+#'
+#' @return A contrast matrix of size \code{n x (n - 1)} (or \code{n x n} if \code{contrasts = FALSE}),
+#' optionally in sparse format. If \code{intercept = TRUE}, a column of 1s is prepended to the matrix.
+#'
+#' @details
+#' **Contrast Type**: Deviation (Last)\cr
+#' **R Equivalent**: \code{contr.sum}\cr
+#' **SPSS Equivalent**: deviation\cr
+#' **MR Equivalent**: effect\cr
+#' **codingMatrices Equivalent**: deviation\cr
+#'
+#' @note
+#' This function implements the deviation contrast coding similar to R base `contr.sum`.
+#' It is adapted for use with sparse matrices and extended functionality.
+#'
+#' @export
 deviation.last <- function(n, intercept = FALSE, contrasts = TRUE, sparse = FALSE) {
   if (length(n) <= 1L) {
     if (is.numeric(n) && length(n) == 1L && n > 1L) {

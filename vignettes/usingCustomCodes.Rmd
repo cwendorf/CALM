@@ -25,7 +25,7 @@ library(CALM)
 
 ## Using Custom Contrast Codes
 
-**CALM** also makes it possible to develop custom codes to test specific hypotheses. The examples below use custom codes in the context of a General Linear Model to test the associated hypotheses.
+`CALM` also makes it possible to develop custom codes to test specific hypotheses. The examples below use custom codes in the context of a General Linear Model to test the associated hypotheses.
 
 ```{r toc, echo=FALSE}
 thisfile <- knitr::current_input()

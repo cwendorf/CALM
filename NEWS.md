@@ -1,5 +1,9 @@
 # Contrast Algorithms for Linear Models
 
+## CALM 1.1.250625
+
+- Updated documentation for functions
+
 ## CALM 1.0.231003
 
 - Refactored functions

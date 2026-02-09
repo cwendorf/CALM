@@ -28,20 +28,15 @@ source("http://raw.githubusercontent.com/cwendorf/CALM/main/source-CALM.R")
 
 ### Usage
 
-The package can take existing coding patterns and decode them to determine the hypotheses being tested. 
+This package contains a set of materials to demonstrate its use: 
 
-- [Extracting Regression Codes](./docs/extractingRegressionCodes.md) - Examples of extracting from traditional regression codes
-- [Extracting Base Codes](./docs/extractingBaseCodes.md) - Examples of extracting from R Base contrast codes
-
-The package can take a set of linear contrasts to be tested and produce coding schemes. 
-
-- [Producing Common Codes](./docs/producingCommonCodes.md) - Examples of producing commonly specified contrast codes 
-- [Producing Custom Codes](./docs/producingCustomCodes.md) - Examples of producing custom contrast codes
-
-The package can be used in conjunction with R's analytical strategies (like the Linear Model) to test hypotheses for real data problems.
-
-- [Using Common Codes](./docs/usingCommonCodes.md) - Examples using the package's built-in contrast codes
-- [Using Custom Codes](./docs/usingCustomCodes.md) - Examples using custom contrast codes
+- [Introduction](./docs/README.md): Introduction to the package
+- [Extracting Regression Codes](./docs/extractingRegressionCodes.md): Examples of extracting from traditional regression codes
+- [Extracting Base Codes](./docs/extractingBaseCodes.md): Examples of extracting from R Base contrast codes
+- [Producing Common Codes](./docs/producingCommonCodes.md): Examples of producing commonly specified contrast codes 
+- [Producing Custom Codes](./docs/producingCustomCodes.md): Examples of producing custom contrast codes
+- [Using Common Codes](./docs/usingCommonCodes.md): Examples using the package's built-in contrast codes
+- [Using Custom Codes](./docs/usingCustomCodes.md): Examples using custom contrast codes
 
 ### Contact Me
 

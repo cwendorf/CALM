@@ -38,7 +38,7 @@ This package contains a set of materials to demonstrate its use:
 - [Using Common Codes](./docs/usingCommonCodes.md): Examples using the package's built-in contrast codes
 - [Using Custom Codes](./docs/usingCustomCodes.md): Examples using custom contrast codes
 
-### Contact Me
+### Contact
 
 - GitHub Issues: [https://github.com/cwendorf/CALM/issues](https://github.com/cwendorf/CALM/issues) 
 - Author Email: [cwendorf@uwsp.edu](mailto:cwendorf@uwsp.edu)

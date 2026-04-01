@@ -30,7 +30,7 @@ source("http://raw.githubusercontent.com/cwendorf/CALM/main/source-CALM.R")
 
 This package includes the following documentation:
 
-- [Introduction](./docs/README.md):  Overview of the package, listing of associated packages, and links to all resources.
+- [Introduction](./docs/README.md):  Overview of the package and links to all resources.
 - [Reference](./docs/man/README.md): Documentation for all exported functions, including usage, arguments, and return values.
 - [Articles](./docs/vignettes/README.md): Examples demonstrating how to use the package.
 

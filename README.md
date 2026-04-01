@@ -28,15 +28,11 @@ source("http://raw.githubusercontent.com/cwendorf/CALM/main/source-CALM.R")
 
 ### Usage
 
-This package contains a set of materials to demonstrate its use: 
+This package includes the following documentation:
 
-- [Introduction](./docs/README.md): Introduction to the package
-- [Extracting Regression Codes](./docs/extractingRegressionCodes.md): Examples of extracting from traditional regression codes
-- [Extracting Base Codes](./docs/extractingBaseCodes.md): Examples of extracting from R Base contrast codes
-- [Producing Common Codes](./docs/producingCommonCodes.md): Examples of producing commonly specified contrast codes 
-- [Producing Custom Codes](./docs/producingCustomCodes.md): Examples of producing custom contrast codes
-- [Using Common Codes](./docs/usingCommonCodes.md): Examples using the package's built-in contrast codes
-- [Using Custom Codes](./docs/usingCustomCodes.md): Examples using custom contrast codes
+- [Introduction](./docs/README.md):  Overview of the package, listing of associated packages, and links to all resources.
+- [Reference](./docs/man/README.md): Documentation for all exported functions, including usage, arguments, and return values.
+- [Articles](./docs/vignettes/README.md): Examples demonstrating how to use the package.
 
 ### Contact
 

@@ -4,6 +4,11 @@
 
 This section is the reference for `CALM`. Each page documents one exported function, including usage, arguments, and return values.
 
+- [Coding and Decoding Matrics](#coding-and-decoding-matrices)
+- [Specifc Contrast Codes](#specific-contrast-codes)
+
+---
+
 ### Coding and Decoding Matrices
 
 - [calm.decode](./calm.decode.md): Recovers the hypothesis matrix from a coded contrast matrix.

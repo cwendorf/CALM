@@ -4,6 +4,12 @@
 
 This section contains vignettes for `CALM`. Each page demonstrates the use of the package to understand the various aspects of contrast coding.
 
+- [Extracting Contrast Codes](#extracting-contrast-codes)
+- [Producing Contrast Codes](#producing-contrast-codes)
+- [Using Contrast Codes](#using-contrast-codes)
+
+---
+
 ### Extracting Contrast Codes
 
 The package can take existing coding patterns and decode them to determine the hypotheses being tested.

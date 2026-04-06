@@ -1,5 +1,4 @@
-
-# `CALM` 
+# [`CALM`](https://github.com/cwendorf/CALM/)
 
 ## Contrast Algorithms for Linear Models
 

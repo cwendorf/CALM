@@ -33,12 +33,6 @@ This package includes the following documentation:
 - [Reference](./docs/man/README.md): Documentation for all exported functions, including usage, arguments, and return values.
 - [Articles](./docs/vignettes/README.md): Examples demonstrating how to use the package.
 
-### Contact
-
-- GitHub Issues: [https://github.com/cwendorf/CALM/issues](https://github.com/cwendorf/CALM/issues)
-- Author Email: [cwendorf@uwsp.edu](mailto:cwendorf@uwsp.edu)
-- Author Homepage: [https://github.com/cwendorf](https://github.com/cwendorf)
-
 ### Citation
 
 Wendorf, C.A. (2021). *CALM: Contrast Algorithms for Linear Models* [R Package]. [https://github.com/cwendorf/CALM](https://github.com/cwendorf/CALM)

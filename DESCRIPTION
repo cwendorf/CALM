@@ -2,7 +2,7 @@ Package: CALM
 Type: Package
 Title: Contrast Algorithms for Linear Models
 Description: CALM provides a suite of functions to create and apply contrast codes for linear models. 
-Version: 1.1.250625
+Version: 1.250625
 Authors@R: person("Craig", "Wendorf", email = "cwendorf@uwsp.edu", role = c("aut", "cre"))
 License: MIT + file LICENSE
 URL: https://github.com/cwendorf/CALM

@@ -5,10 +5,5 @@ authors:
   - family-names: "Wendorf"
     given-names: "Craig A."
     email: "cwendorf@uwsp.edu"
-version: "1.250625"
-license: "MIT"
-repository-code: "https://github.com/cwendorf/CALM"
+date-released: "2025-06-25"
 url: "https://github.com/cwendorf/CALM"
-abstract: >-
-  CALM provides a suite of functions to create and apply contrast codes for
-  linear models.

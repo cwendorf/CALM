@@ -2,7 +2,7 @@
 
 ## Reference
 
-This section is the reference for `CALM`. Each page documents one exported function, including usage, arguments, and return values.
+This section is the reference for `CALM`. Each page documents one exported function, including usage, arguments, return values, and examples.
 
 - [Coding and Decoding Matrics](#coding-and-decoding-matrices)
 - [Specifc Contrast Codes](#specific-contrast-codes)

@@ -2,7 +2,7 @@
 
 ## Articles
 
-This section contains vignettes for `CALM`. Each page demonstrates the use of the package to understand the various aspects of contrast coding.
+This section contains articles for `CALM`. They show how to extract existing contrast codes, construct common or custom coding schemes, and use codes to test hypotheses.
 
 - [Extracting Contrast Codes](#extracting-contrast-codes)
 - [Producing Contrast Codes](#producing-contrast-codes)
